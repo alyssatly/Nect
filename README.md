@@ -29,34 +29,37 @@ Platform for people to find friends to play video games with. Every user will ha
 * Users can edit profile (self-intro, contact infomation, pictures)
 * User can add games they play to their profile
 * There is a match up system that matches two people according to games
-* Have specific filters for matching up
 * Can add/view contacts (friends list)
 * Can view other people's profiles
 
 
 **Optional Nice-to-have Stories**
-
+* Chat system(prefered)
+* Have specific filters for matching up
 * User can enter in additional interests to better connect with others 
 * User can follow others and view a feed
-* Chat system
 * Linked to discord
 
 ### 2. Screen Archetypes
 
 * Login
 * Profile page
-   * User can create profile 
+* Edit profile page
+    * User can create profile 
     * Users can edit profile
+* Edit games page
+     * User can add games they play to their profile
+* game details page
     * User can add games they play to their profile
 * (Con)NECT page
    * There is a match up system that matches two people according to games
    * have specific filters for matching up
-* Friends page
-    * Can add/view contacts (friends list)
 * User page
     * Can view other people's profiles
-* Discover 
-* Chat page: optional
+* Chat overview page
+    * Friends page (intergrated into search system?)
+        * Can add/view contacts (friends list)
+* Inidividual chat page
 
 ### 3. Navigation
 
@@ -64,9 +67,8 @@ Platform for people to find friends to play video games with. Every user will ha
 
 * Profile
 * NECT
-* Discover
-* Activity/notifications
-* Optional:Chat
+* Prefered Optional:Chat
+* Optional:Activity/notifications
 * Optional:Feed
 
 **Flow Navigation** (Screen to Screen)
@@ -88,10 +90,83 @@ Platform for people to find friends to play video games with. Every user will ha
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+
+Model:User
+
+| Property | Type | description|
+| -------- | -------- | -------- |
+|objectId|String|unique id for the user (default field)|
+|displayPhoto|File|profile photo display in user's profile|
+|username|String|name used to identify each user|
+|displayName|String|an additional name that gets displayed to others|
+|password|String|user's password (hidden)|
+|about|String|description section for users to descirbe themselves|
+|interests (opt feature)|array of strings|interests that will help better match players
+|gender(opt)|String|Field indicating gender "M"/"F"/nil|
+|age(opt)|Number|age of user|
+|contactInfo (opt)|pointer to contactInfo object|place that contains a user's different contact methods|
+|friends|array of users| list of friends the user has connected with|
+|nectRequests|array of users|list of users who want to connect with current user|
+|games|array of game objects|an array of all games the user plays|
+|createdAt|DateTime|date when user is created (default field)|
+|updatedAt|DateTime|date when user is updated (default field)|
+
+Model: contactInfo (all fields optional, user does not have to provide contact information)
+
+| Property | Type | description|
+| -------- | -------- | -------- |
+|objectId|String|unique id for the contactInfo (default field)|
+|email|String|user's email|
+|phoneNumber|String|user's phone (hidden)|
+|discordID|Number|user's discord user identifier|
+|createdAt|DateTime|date when contactInfo is created (default field)|
+|updatedAt|DateTime|date when contactInfo is updated (default field)|
+
+Model: game (get data from https://rapidapi.com/valkiki/api/chicken-coop)
+
+| Property | Type | description|
+| -------- | -------- | -------- |
+|objectId|String|unique id for the game(default field)|
+|gameName|String|name of game|
+|genre|Array of Strings|genre game belongs to|
+|gameImage|File|game poster|
+|description|String|Description of game to display|
+|createdAt|DateTime|date when game is created (default field)|
+|updatedAt|DateTime|date when game is updated (default field)|
+
+Model: chat
+
+| Property | Type | description|
+| -------- | -------- | -------- |
+|objectId|String|unique id for the chat(default field)|
+|sender|pointer to user object|user that sent chat|
+|receiver|pointer to user object|user that received chat|
+|text|String|chat that was sent|
+|createdAt|DateTime|date when chat is created (default field)|
+|updatedAt|DateTime|date when chat is updated (default field)|
+
 ### Networking
-- [Add list of network requests by screen ]
+
+#### List of network requests by screen
+Login Screen:
+* (Create/POST)Create a user
+* (Read/GET) Query logged in user object
+
+Edit Profile Screen:
+* (Update/PUT) Update user profile image
+
+Nect Screen:
+* (Read/GET) get user object to display profile
+
+Game screen/games detail view:
+* (Create/POST) save game in database
+* (read/GET) get game from api/database to display
+
+Chat Screen:
+* (Read/GET)chats that the user has composed and received
+
+
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
