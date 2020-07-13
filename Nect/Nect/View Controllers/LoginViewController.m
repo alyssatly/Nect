@@ -53,21 +53,32 @@
     }else if([self.passwordField.text isEqual:@""]){
         [self addAlert:@"Error signing up" message:@"Password field is empty"];
     }else{
-        PFUser *newUser = [PFUser user];
-        
-        // set user properties
-        newUser.username = self.usernameField.text;
-        //newUser.email = self.emailField.text;
-        newUser.password = self.passwordField.text;
-        
-        // call sign up function on the object
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-            if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
-                [self addAlert:@"Error signing up" message:error.localizedDescription];
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:self.usernameField.text];
+        query.limit = 1;
+
+        // fetch data asynchronously
+        [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+            if (users.count != 0) {           
+                [self addAlert:@"Username is taken" message:@"Please select a new username"];
             } else {
-                NSLog(@"User registered successfully");
-                [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                PFUser *newUser = [PFUser user];
+
+               // set user properties
+               newUser.username = self.usernameField.text;
+               //newUser.email = self.emailField.text;
+               newUser.password = self.passwordField.text;
+
+               // call sign up function on the object
+               [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                   if (error != nil) {
+                       NSLog(@"Error: %@", error.localizedDescription);
+                       [self addAlert:@"Error signing up" message:error.localizedDescription];
+                   } else {
+                       NSLog(@"User registered successfully");
+                       [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                   }
+               }];
             }
         }];
     }

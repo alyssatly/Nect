@@ -15,15 +15,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA2-we-fbQ">
-                                <rect key="frame" x="138" y="413" width="138" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA2-we-fbQ">
+                                <rect key="frame" x="138" y="418" width="138" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="HHU-cN-rPE"/>
+                                    <constraint firstAttribute="width" constant="138" id="Tvs-8D-aT9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="58"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wA2-we-fbQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7ev-KK-PEy"/>
+                            <constraint firstItem="wA2-we-fbQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KLZ-kx-Cb7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

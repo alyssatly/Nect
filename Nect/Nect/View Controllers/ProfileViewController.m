@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
+#import "MBProgressHUD.h"
 
 @interface ProfileViewController ()
 
@@ -19,15 +20,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (IBAction)logoutPressed:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if(error != nil){
             NSLog(@"There was a problem logging out");
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
         }else{
             NSLog(@"Successfully logged out!");
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             SceneDelegate *sceneDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

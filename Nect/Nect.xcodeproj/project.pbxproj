@@ -17,6 +17,7 @@
 		E0516E3324BCF1AD0096A5E9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0516E3224BCF1AD0096A5E9 /* LoginViewController.m */; };
 		E0516E3624BCFDB20096A5E9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */; };
 		E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0516E3824BCFDBF0096A5E9 /* NectViewController.m */; };
+		E099A88D24BD059200F83109 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E099A88C24BD059200F83109 /* EditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		E0516E3724BCFDBF0096A5E9 /* NectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NectViewController.h; sourceTree = "<group>"; };
 		E0516E3824BCFDBF0096A5E9 /* NectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NectViewController.m; sourceTree = "<group>"; };
+		E099A88B24BD059200F83109 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		E099A88C24BD059200F83109 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */,
 				E0516E3724BCFDBF0096A5E9 /* NectViewController.h */,
 				E0516E3824BCFDBF0096A5E9 /* NectViewController.m */,
+				E099A88B24BD059200F83109 /* EditViewController.h */,
+				E099A88C24BD059200F83109 /* EditViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				E0516E3324BCF1AD0096A5E9 /* LoginViewController.m in Sources */,
 				E0516E1824BCDE870096A5E9 /* AppDelegate.m in Sources */,
 				E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */,
+				E099A88D24BD059200F83109 /* EditViewController.m in Sources */,
 				E0516E2924BCDE880096A5E9 /* main.m in Sources */,
 				E0516E1B24BCDE870096A5E9 /* SceneDelegate.m in Sources */,
 				E0516E3624BCFDB20096A5E9 /* ProfileViewController.m in Sources */,
