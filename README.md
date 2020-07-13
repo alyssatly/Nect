@@ -25,18 +25,22 @@ Platform for people to find friends to play video games with. Every user will ha
 
 **Required Must-have Stories**
 
-* User can create profile 
+* User can sign up and log in
 * Users can edit profile (self-intro, contact infomation, pictures)
 * User can add games they play to their profile
+* User can view detailed game information
+* Can view you own profile
 * There is a match up system that matches two people according to games
-* Can add/view contacts (friends list)
-* Can view other people's profiles
+* Can view other user's profile and add other users
+* Can view contacts (friends list)
+
 
 
 **Optional Nice-to-have Stories**
 * Chat system(prefered)
 * Have specific filters for matching up
-* User can enter in additional interests to better connect with others 
+* User can enter in additional interests to better connect with others
+* Implement filters for nect section 
 * User can follow others and view a feed
 * Linked to discord
 
@@ -45,7 +49,6 @@ Platform for people to find friends to play video games with. Every user will ha
 * Login
 * Profile page
 * Edit profile page
-    * User can create profile 
     * Users can edit profile
 * Edit games page
      * User can add games they play to their profile
