@@ -113,7 +113,8 @@
 
 -(void)roundImage:(UIImageView *)picture{
     picture.layer.masksToBounds = YES;
-    picture.layer.cornerRadius = picture.frame.size.width/2;
+    picture.layer.cornerRadius = picture.frame.size.height/2.2;
+    picture.layer.borderWidth = 0;
 }
 - (IBAction)cancelPressed:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
