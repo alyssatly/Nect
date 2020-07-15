@@ -1,4 +1,5 @@
 PODS:
+  - AFNetworking (1.3.4)
   - Bolts/Tasks (1.9.1)
   - MBProgressHUD (1.2.0)
   - Parse (1.18.0):
@@ -7,23 +8,30 @@ PODS:
     - Bolts/Tasks (= 1.9.1)
   - Parse/UI (1.18.0):
     - Parse/Core
+  - Unirest (1.1.4)
 
 DEPENDENCIES:
+  - AFNetworking
   - MBProgressHUD
   - Parse
   - Parse/UI
+  - Unirest (~> 1.1.4)
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - Bolts
     - MBProgressHUD
     - Parse
+    - Unirest
 
 SPEC CHECKSUMS:
+  AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Parse: 79bdda34fdb7eb2a707a43a951c8aae236cb3e34
+  Unirest: 5e4d93eaf32463bf619a4ecd3bbc8c32acf21eac
 
-PODFILE CHECKSUM: 9f3ebdc7f335d23138046791db42d193964d499e
+PODFILE CHECKSUM: 207b8b2e81ee1a3a77c9b2028b0bef9a01be417e
 
 COCOAPODS: 1.9.3

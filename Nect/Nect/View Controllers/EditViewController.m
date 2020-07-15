@@ -14,6 +14,8 @@
 
 @interface EditViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
+@property (strong, nonatomic) IBOutlet UIView *profileView;
+
 @property (strong, nonatomic) IBOutlet PFImageView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
@@ -41,9 +43,11 @@
     
     //set values for existing fields
     PFUser *currentUser = [PFUser currentUser];
+    NSLog(@"Current User: %@", currentUser);
     if(currentUser[@"displayPhoto"] != nil){
-        self.profilePictureView.file = currentUser[@"displayPhoto"];
+        self.profilePictureView.file= currentUser[@"displayPhoto"];
         [self.profilePictureView loadInBackground];
+        NSLog(@"%@",self.profilePictureView.file);
         
     }
     self.usernameField.text = currentUser[@"username"];
@@ -72,6 +76,10 @@
     profiePicGesture.numberOfTapsRequired = 1;
     [profiePicGesture setDelegate:self];
     [self.profilePictureView addGestureRecognizer:profiePicGesture];
+    
+    //hide keyboard when view it touched
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.profileView addGestureRecognizer:gestureRecognizer];
 }
 
 - (void) choosePhoto: (id)sender
@@ -199,7 +207,11 @@
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
-- (IBAction)editGamesPressed:(id)sender {
+-(void)hideKeyboard{
+    [self.usernameField endEditing:YES];
+    [self.passwordField endEditing:YES];
+    [self.displayNameField endEditing:YES];
+    [self.aboutTextView endEditing:YES];
     
 }
 

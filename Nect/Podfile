@@ -8,6 +8,9 @@ target 'Nect' do
   # Pods for Nect
   pod 'Parse'
   pod 'Parse/UI'
+  pod 'AFNetworking'
   pod 'MBProgressHUD'
+  platform :ios, '5.0'
+pod 'Unirest', '~> 1.1.4'
 
 end
