@@ -14,9 +14,8 @@
     self = [super init];
     if(self){
         self.name = dictionary[@"title"];
-        NSLog(@"%@", self.name);
         self.gameDescription = dictionary[@"description"];
-        self.genres = dictionary[@"genres"];
+        self.genres = dictionary[@"genre"];
         self.image = dictionary[@"image"];
         self.developer = dictionary[@"developer"];
         

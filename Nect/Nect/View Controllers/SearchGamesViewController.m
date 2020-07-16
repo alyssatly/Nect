@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import <Foundation/Foundation.h>
 #import "MBProgressHUD.h"
+#import "DetailsGameViewController.h"
 
 @interface SearchGamesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
@@ -85,8 +86,7 @@
     self.searchName = [self.searchName stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     self.searchName = [self.searchName stringByReplacingOccurrencesOfString:@"," withString:@"%2C"];
     NSString* myURL =[NSString stringWithFormat:@"https://chicken-coop.p.rapidapi.com/games?title=%@", self.searchName];
-    NSLog(@"%@", myURL);
-    //https://chicken-coop.p.rapidapi.com/games?title=oxygen%20not%20included "/rest/games?title=oxygen%20not%20included"
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:myURL]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
@@ -173,24 +173,30 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
-
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqual:@"gameDetails"]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:(UICollectionViewCell *)tappedCell];
+        Game *game = self.games[indexPath.item];
+        DetailsGameViewController *detailsGameViewController = [segue destinationViewController];
+        detailsGameViewController.game = game;
+    }
 }
-*/
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     Game *game = self.games[indexPath.item];
     GameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GameCell" forIndexPath:indexPath];
     
     NSURL*posterURL = [NSURL URLWithString:game.image];
-    cell.posterView.image = nil;
+    cell.posterView.image = [UIImage systemImageNamed:@"smiley"];
+    cell.posterView.alpha = 0.0;
     [cell.posterView setImageWithURL:posterURL];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        cell.posterView.alpha = 1.0;
+    }];
     
     return cell;
 }

@@ -42,7 +42,7 @@
     [super viewDidLoad];
     
     //set values for existing fields
-    PFUser *currentUser = [PFUser currentUser];
+    PFUser *currentUser = [[PFUser currentUser] fetch];
     NSLog(@"Current User: %@", currentUser);
     if(currentUser[@"displayPhoto"] != nil){
         self.profilePictureView.file= currentUser[@"displayPhoto"];
@@ -119,17 +119,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)roundImage:(UIImageView *)picture{
+-(void)roundImage:(PFImageView *)picture{
     picture.layer.masksToBounds = YES;
     picture.layer.cornerRadius = picture.frame.size.height/2.2;
     picture.layer.borderWidth = 0;
 }
+
 - (IBAction)cancelPressed:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 - (IBAction)savePressed:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    PFUser *currentUser = [PFUser currentUser];
+    PFUser *currentUser = [[PFUser currentUser] fetch];
     
     //Assign new values
     if(![self.usernameField.text isEqualToString:@""]){
@@ -157,7 +158,6 @@
 }
 
 -(void)updateData:(PFUser *)currentUser{
-    NSLog(@"inside");
     if(![self.passwordField.text isEqualToString:@""]){
         currentUser[@"password"] = self.passwordField.text;
         [currentUser setPassword:self.passwordField.text];
