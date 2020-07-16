@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EditViewController : UIViewController
 
+-(void)updateImages;
 @end
 
 NS_ASSUME_NONNULL_END

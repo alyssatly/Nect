@@ -7,9 +7,11 @@
 //
 
 #import "EditViewController.h"
+#import "SearchGamesViewController.h"
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
+#import "UIImageView+AFNetworking.h"
 @import Parse;
 
 @interface EditViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate>
@@ -22,14 +24,15 @@
 @property (strong, nonatomic) IBOutlet UITextField *displayNameField;
 @property (strong, nonatomic) IBOutlet UITextView *aboutTextView;
 
-@property (strong, nonatomic) IBOutlet PFImageView *game1;
-@property (strong, nonatomic) IBOutlet PFImageView *game2;
-@property (strong, nonatomic) IBOutlet PFImageView *game3;
-@property (strong, nonatomic) IBOutlet PFImageView *game4;
-@property (strong, nonatomic) IBOutlet PFImageView *game5;
-@property (strong, nonatomic) IBOutlet PFImageView *game6;
-@property (strong, nonatomic) IBOutlet PFImageView *game7;
-@property (strong, nonatomic) IBOutlet PFImageView *game8;
+@property (strong, nonatomic) IBOutlet UIImageView *game1;
+@property (strong, nonatomic) IBOutlet UIImageView *game2;
+@property (strong, nonatomic) IBOutlet UIImageView *game3;
+@property (strong, nonatomic) IBOutlet UIImageView *game4;
+@property (strong, nonatomic) IBOutlet UIImageView *game5;
+@property (strong, nonatomic) IBOutlet UIImageView *game6;
+@property (strong, nonatomic) IBOutlet UIImageView *game7;
+@property (strong, nonatomic) IBOutlet UIImageView *game8;
+
 
 @property (assign, nonatomic) BOOL cont;
 
@@ -56,15 +59,11 @@
     self.aboutTextView.text = currentUser[@"about"];
     
     //Make all images round
-    [self roundImage:self.profilePictureView];
-    [self roundImage:self.game1];
-    [self roundImage:self.game2];
-    [self roundImage:self.game3];
-    [self roundImage:self.game4];
-    [self roundImage:self.game5];
-    [self roundImage:self.game6];
-    [self roundImage:self.game7];
-    [self roundImage:self.game8];
+    self.profilePictureView.layer.masksToBounds = YES;
+    self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height/2.2;
+    self.profilePictureView.layer.borderWidth = 0;
+    [self resetImages];
+    [self updateImages];
     
     //Add border to about text view
     self.aboutTextView.layer.borderWidth = 1.0f;
@@ -80,6 +79,82 @@
     //hide keyboard when view it touched
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.profileView addGestureRecognizer:gestureRecognizer];
+}
+
+//need to find a way to not hard code this later
+-(void)updateImages{
+    [self resetImages];
+    PFUser *currentUser = [[PFUser currentUser] fetch];
+    NSArray *myGames = currentUser[@"games"];
+    if(myGames.count >= 1){
+        self.game1.contentMode = UIViewContentModeScaleAspectFill;
+        NSURL *posterURL = [NSURL URLWithString:myGames[0][@"image"]];
+        self.game1.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+        [self.game1 setImageWithURL:posterURL];
+        if(myGames.count >= 2){
+            self.game2.contentMode = UIViewContentModeScaleAspectFill;
+            NSURL *posterURL = [NSURL URLWithString:myGames[1][@"image"]];
+            self.game2.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+            [self.game2 setImageWithURL:posterURL];
+            if(myGames.count >= 3){
+                self.game3.contentMode = UIViewContentModeScaleAspectFill;
+                NSURL *posterURL = [NSURL URLWithString:myGames[2][@"image"]];
+                self.game3.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                [self.game3 setImageWithURL:posterURL];
+                if(myGames.count >= 4){
+                    self.game4.contentMode = UIViewContentModeScaleAspectFill;
+                    NSURL *posterURL = [NSURL URLWithString:myGames[3][@"image"]];
+                    self.game4.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                    [self.game4 setImageWithURL:posterURL];
+                    if(myGames.count >= 5){
+                        self.game5.contentMode = UIViewContentModeScaleAspectFill;
+                        NSURL *posterURL = [NSURL URLWithString:myGames[4][@"image"]];
+                        self.game5.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                        [self.game5 setImageWithURL:posterURL];
+                        if(myGames.count >= 6){
+                            self.game6.contentMode = UIViewContentModeScaleAspectFill;
+                            NSURL *posterURL = [NSURL URLWithString:myGames[5][@"image"]];
+                            self.game6.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                            [self.game6 setImageWithURL:posterURL];
+                            if(myGames.count >= 7){
+                                self.game7.contentMode = UIViewContentModeScaleAspectFill;
+                                NSURL *posterURL = [NSURL URLWithString:myGames[6][@"image"]];
+                                self.game7.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                                [self.game7 setImageWithURL:posterURL];
+                                if(myGames.count >= 8){
+                                    self.game8.contentMode = UIViewContentModeScaleAspectFill;
+                                    NSURL *posterURL = [NSURL URLWithString:myGames[7][@"image"]];
+                                    self.game8.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                                    [self.game8 setImageWithURL:posterURL];
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+-(void)resetImages{
+    [self roundImage:self.game1];
+    [self roundImage:self.game2];
+    [self roundImage:self.game3];
+    [self roundImage:self.game4];
+    [self roundImage:self.game5];
+    [self roundImage:self.game6];
+    [self roundImage:self.game7];
+    [self roundImage:self.game8];
+}
+    
+
+-(void)roundImage:(UIImageView *)picture{
+    picture.layer.masksToBounds = YES;
+    picture.layer.cornerRadius = picture.frame.size.height/2.2;
+    picture.layer.borderWidth = 0;
+    picture.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+    picture.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void) choosePhoto: (id)sender
@@ -119,11 +194,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)roundImage:(PFImageView *)picture{
-    picture.layer.masksToBounds = YES;
-    picture.layer.cornerRadius = picture.frame.size.height/2.2;
-    picture.layer.borderWidth = 0;
-}
+
 
 - (IBAction)cancelPressed:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
@@ -216,14 +287,21 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqual:@"editGames"]){
+        //give the current EditViewController to the searchGamesViewController
+        NSLog(@"Tapped!");
+        UINavigationController *navigationController = [segue destinationViewController];
+        SearchGamesViewController *searchViewController = (SearchGamesViewController *)navigationController.topViewController;
+        searchViewController.editViewController = self;
+    }
 }
-*/
+
 
 @end

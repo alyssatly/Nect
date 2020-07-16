@@ -256,7 +256,7 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JE6-6B-4i2" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JE6-6B-4i2">
                                                 <rect key="frame" x="20" y="367" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -264,7 +264,7 @@
                                                     <constraint firstAttribute="width" secondItem="JE6-6B-4i2" secondAttribute="height" multiplier="1:1" id="ygs-ud-3Rj"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rIX-lF-GeT" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rIX-lF-GeT">
                                                 <rect key="frame" x="114.5" y="367" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -272,7 +272,7 @@
                                                     <constraint firstAttribute="width" secondItem="rIX-lF-GeT" secondAttribute="height" multiplier="1:1" id="BpJ-UH-koc"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3pY-rU-xlf" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3pY-rU-xlf">
                                                 <rect key="frame" x="209" y="367" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -280,7 +280,7 @@
                                                     <constraint firstAttribute="width" secondItem="3pY-rU-xlf" secondAttribute="height" multiplier="1:1" id="aOT-CD-RNi"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-st-KQP" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-st-KQP">
                                                 <rect key="frame" x="303.5" y="367" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -288,7 +288,7 @@
                                                     <constraint firstAttribute="width" secondItem="h7w-st-KQP" secondAttribute="height" multiplier="1:1" id="JSK-7f-eKZ"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZYW-Zd-34L" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZYW-Zd-34L">
                                                 <rect key="frame" x="20" y="461.5" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,7 +296,7 @@
                                                     <constraint firstAttribute="width" secondItem="ZYW-Zd-34L" secondAttribute="height" multiplier="1:1" id="NWM-gf-5gC"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wDk-fn-ycp" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wDk-fn-ycp">
                                                 <rect key="frame" x="114.5" y="461.5" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -304,7 +304,7 @@
                                                     <constraint firstAttribute="width" secondItem="wDk-fn-ycp" secondAttribute="height" multiplier="1:1" id="K58-q4-YNt"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xag-6L-Lpe" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xag-6L-Lpe">
                                                 <rect key="frame" x="209" y="461.5" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -312,7 +312,7 @@
                                                     <constraint firstAttribute="width" secondItem="Xag-6L-Lpe" secondAttribute="height" multiplier="1:1" id="o13-ik-T0c"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yaz-dC-rjK" customClass="PFImageView">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yaz-dC-rjK">
                                                 <rect key="frame" x="303.5" y="461.5" width="84.5" height="82"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -331,7 +331,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="gVx-fp-lOB" kind="presentation" id="DFC-jE-qD1"/>
+                                                    <segue destination="gVx-fp-lOB" kind="presentation" identifier="editGames" id="DFC-jE-qD1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -423,14 +423,14 @@
                     <connections>
                         <outlet property="aboutTextView" destination="ezv-kN-iwK" id="Xno-TF-Stm"/>
                         <outlet property="displayNameField" destination="mXG-up-Og7" id="Gfd-2a-RfX"/>
-                        <outlet property="game1" destination="JE6-6B-4i2" id="A3R-lt-WMw"/>
-                        <outlet property="game2" destination="rIX-lF-GeT" id="vbu-BJ-sND"/>
-                        <outlet property="game3" destination="3pY-rU-xlf" id="jYr-Sj-xdK"/>
-                        <outlet property="game4" destination="h7w-st-KQP" id="XIL-9i-HHl"/>
-                        <outlet property="game5" destination="ZYW-Zd-34L" id="MhV-bU-bYb"/>
-                        <outlet property="game6" destination="wDk-fn-ycp" id="V5Z-74-sOo"/>
-                        <outlet property="game7" destination="Xag-6L-Lpe" id="VKs-dX-UNw"/>
-                        <outlet property="game8" destination="yaz-dC-rjK" id="vWX-RT-XXn"/>
+                        <outlet property="game1" destination="JE6-6B-4i2" id="6Sf-Op-g6F"/>
+                        <outlet property="game2" destination="rIX-lF-GeT" id="eOx-Wh-wkK"/>
+                        <outlet property="game3" destination="3pY-rU-xlf" id="iQl-Zg-opV"/>
+                        <outlet property="game4" destination="h7w-st-KQP" id="1KO-D8-Eg8"/>
+                        <outlet property="game5" destination="ZYW-Zd-34L" id="qBq-D6-ZQN"/>
+                        <outlet property="game6" destination="wDk-fn-ycp" id="4XP-Tn-evl"/>
+                        <outlet property="game7" destination="Xag-6L-Lpe" id="5Iq-r3-O6g"/>
+                        <outlet property="game8" destination="yaz-dC-rjK" id="7FF-8k-Zow"/>
                         <outlet property="passwordField" destination="TfL-RG-mSf" id="0Oo-cd-Qso"/>
                         <outlet property="profilePictureView" destination="4IF-DD-YlY" id="0Si-bQ-Zt4"/>
                         <outlet property="profileView" destination="pWG-qO-7gg" id="Dio-IG-qdS"/>
@@ -714,6 +714,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2Jc-O6-vyx">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erO-gq-qm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gVx-fp-lOB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fvt-Mh-1qj">
@@ -725,7 +726,6 @@
                         <segue destination="vSt-2L-JP5" kind="relationship" relationship="rootViewController" id="7aj-lX-esK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="erO-gq-qm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2413" y="2277"/>
         </scene>

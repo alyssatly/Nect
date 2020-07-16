@@ -13,6 +13,8 @@
 #import <Foundation/Foundation.h>
 #import "MBProgressHUD.h"
 #import "DetailsGameViewController.h"
+#import "EditViewController.h"
+#import <Parse/Parse.h>
 
 @interface SearchGamesViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 
@@ -36,7 +38,13 @@
     self.games = [NSMutableArray array];
     self.gameNames = [NSMutableArray array];
     
-    //[self fetchGames];
+    //originally displays games in user's profile
+    PFUser *currentUser = [[PFUser currentUser] fetch];
+    for(NSDictionary *gameDict in currentUser[@"games"]){
+        Game *game = [[Game alloc] initWithDictionary:gameDict];
+        [self.games addObject:game];
+    }
+    [self.collectionView reloadData];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     
@@ -75,6 +83,19 @@
     self.searchBar.showsCancelButton = NO;
     self.searchBar.text = @"";
     [self.searchBar resignFirstResponder];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length == 0) {
+        //display user's games
+        PFUser *currentUser = [[PFUser currentUser] fetch];
+        self.games = [NSMutableArray array];
+        for(NSDictionary *gameDict in currentUser[@"games"]){
+            Game *game = [[Game alloc] initWithDictionary:gameDict];
+            [self.games addObject:game];
+        }
+        [self.collectionView reloadData];
+    }
 }
 
 -(void)fetchGames{
@@ -120,7 +141,6 @@
    
     
 }
-
 
 
 -(void)getInfo:(NSDictionary *)dictionary {
@@ -170,6 +190,7 @@
 }
 
 - (IBAction)backPressed:(id)sender {
+    [self.editViewController updateImages];
     [self dismissViewControllerAnimated:true completion:nil];
 }
 

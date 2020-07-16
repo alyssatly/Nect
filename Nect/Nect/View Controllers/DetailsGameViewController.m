@@ -66,16 +66,19 @@
     PFUser *currentUser = [[PFUser currentUser] fetch];
     NSDictionary *gameDict = [self dictionaryFromMenu:self.game];
     NSMutableArray *gamesArray = currentUser[@"games"];
+    NSString* status;
     if(![currentUser[@"games"] containsObject:gameDict]){
         if(gamesArray == nil){
             gamesArray = [NSMutableArray array];
         }
         [gamesArray addObject:gameDict];
         currentUser[@"games"] = gamesArray;
+        status = @"added";
         NSLog(@"Trying to add: %@",currentUser[@"games"]);
     }else{
         [gamesArray removeObject:gameDict];
         currentUser[@"games"] = gamesArray;
+        status = @"removed";
         NSLog(@"Tried to remove %@",currentUser[@"games"]);
         
     }
@@ -83,6 +86,8 @@
       if (succeeded) {
           NSLog(@"Success");
           [MBProgressHUD hideHUDForView:self.view animated:YES];
+          [self addAlert:@"Success!" message:[NSString stringWithFormat:@"%@ was successfully %@ to your games", self.game.name,status]];
+         
       } else {
           NSLog(@"There was a problem: %@", error.description);
           [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -91,14 +96,30 @@
 }
 
 - (NSDictionary *)dictionaryFromMenu:(Game *)game {
-    NSDictionary *returnDict = [NSDictionary dictionaryWithObjectsAndKeys:game.name,@"gameName",
-     game.gameDescription, @"gameDescription",
+    NSDictionary *returnDict = [NSDictionary dictionaryWithObjectsAndKeys:game.name,@"title",
+     game.gameDescription, @"description",
      game.developer, @"developer",
      game.image, @"image",
-     game.genres , @"genres",
+     game.genres , @"genre",
     nil];
     
     return returnDict;
+}
+
+-(void)addAlert:(NSString *)title message:(NSString*)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+            message:message
+     preferredStyle:(UIAlertControllerStyleAlert)];
+     
+     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+       style:UIAlertActionStyleDefault
+     handler:^(UIAlertAction * _Nonnull action) {
+     }];
+     
+     [alert addAction:okAction];
+     
+     [self presentViewController:alert animated:YES completion:^{
+     }];
 }
 
 /*
