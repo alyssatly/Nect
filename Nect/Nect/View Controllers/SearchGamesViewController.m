@@ -67,12 +67,19 @@
     self.gameNames = [NSMutableArray array];
     [self.collectionView reloadData];
     
+    //dispatch_group_t group = dispatch_group_create();
+    
+    //dispatch_group_async(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
     if(![searchBar.text isEqualToString:@""]){
         self.searchName = searchBar.text;
         [self fetchGames];
     }
+   // });
     
-    //[MBProgressHUD hideHUDForView:self.view animated:YES];
+    //dispatch_group_notify(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
+     //   [MBProgressHUD hideHUDForView:self.view animated:YES];
+    //});
+  
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {

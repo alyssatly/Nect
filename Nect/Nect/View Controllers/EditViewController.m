@@ -62,7 +62,6 @@
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height/2.2;
     self.profilePictureView.layer.borderWidth = 0;
-    [self resetImages];
     [self updateImages];
     
     //Add border to about text view
@@ -89,42 +88,42 @@
     if(myGames.count >= 1){
         self.game1.contentMode = UIViewContentModeScaleAspectFill;
         NSURL *posterURL = [NSURL URLWithString:myGames[0][@"image"]];
-        self.game1.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+        self.game1.image = [UIImage systemImageNamed:@"gamecontroller"];
         [self.game1 setImageWithURL:posterURL];
         if(myGames.count >= 2){
             self.game2.contentMode = UIViewContentModeScaleAspectFill;
             NSURL *posterURL = [NSURL URLWithString:myGames[1][@"image"]];
-            self.game2.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+            self.game2.image = [UIImage systemImageNamed:@"gamecontroller"];
             [self.game2 setImageWithURL:posterURL];
             if(myGames.count >= 3){
                 self.game3.contentMode = UIViewContentModeScaleAspectFill;
                 NSURL *posterURL = [NSURL URLWithString:myGames[2][@"image"]];
-                self.game3.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                self.game3.image = [UIImage systemImageNamed:@"gamecontroller"];
                 [self.game3 setImageWithURL:posterURL];
                 if(myGames.count >= 4){
                     self.game4.contentMode = UIViewContentModeScaleAspectFill;
                     NSURL *posterURL = [NSURL URLWithString:myGames[3][@"image"]];
-                    self.game4.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                    self.game4.image = [UIImage systemImageNamed:@"gamecontroller"];
                     [self.game4 setImageWithURL:posterURL];
                     if(myGames.count >= 5){
                         self.game5.contentMode = UIViewContentModeScaleAspectFill;
                         NSURL *posterURL = [NSURL URLWithString:myGames[4][@"image"]];
-                        self.game5.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                        self.game5.image = [UIImage systemImageNamed:@"gamecontroller"];
                         [self.game5 setImageWithURL:posterURL];
                         if(myGames.count >= 6){
                             self.game6.contentMode = UIViewContentModeScaleAspectFill;
                             NSURL *posterURL = [NSURL URLWithString:myGames[5][@"image"]];
-                            self.game6.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                            self.game6.image = [UIImage systemImageNamed:@"gamecontroller"];
                             [self.game6 setImageWithURL:posterURL];
                             if(myGames.count >= 7){
                                 self.game7.contentMode = UIViewContentModeScaleAspectFill;
                                 NSURL *posterURL = [NSURL URLWithString:myGames[6][@"image"]];
-                                self.game7.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                                self.game7.image = [UIImage systemImageNamed:@"gamecontroller"];
                                 [self.game7 setImageWithURL:posterURL];
                                 if(myGames.count >= 8){
                                     self.game8.contentMode = UIViewContentModeScaleAspectFill;
                                     NSURL *posterURL = [NSURL URLWithString:myGames[7][@"image"]];
-                                    self.game8.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
+                                    self.game8.image = [UIImage systemImageNamed:@"gamecontroller"];
                                     [self.game8 setImageWithURL:posterURL];
                                     
                                 }
