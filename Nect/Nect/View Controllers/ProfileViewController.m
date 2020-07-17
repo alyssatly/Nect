@@ -14,6 +14,7 @@
 #import "Game.h"
 #import "ProfileGameCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailsGameViewController.h"
 @import Parse;
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -96,15 +97,19 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([[segue identifier] isEqual:@"viewGame"]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:(UICollectionViewCell *)tappedCell];
+        Game *game = self.games[indexPath.item];
+        DetailsGameViewController *detailsGameViewController = [segue destinationViewController];
+        detailsGameViewController.game = game;
+    }
 }
-*/
+
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     

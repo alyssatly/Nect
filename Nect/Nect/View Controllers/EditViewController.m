@@ -46,7 +46,6 @@
     
     //set values for existing fields
     PFUser *currentUser = [[PFUser currentUser] fetch];
-    NSLog(@"Current User: %@", currentUser);
     if(currentUser[@"displayPhoto"] != nil){
         self.profilePictureView.file= currentUser[@"displayPhoto"];
         [self.profilePictureView loadInBackground];
@@ -86,46 +85,21 @@
     PFUser *currentUser = [[PFUser currentUser] fetch];
     NSArray *myGames = currentUser[@"games"];
     if(myGames.count >= 1){
-        self.game1.contentMode = UIViewContentModeScaleAspectFill;
-        NSURL *posterURL = [NSURL URLWithString:myGames[0][@"image"]];
-        self.game1.image = [UIImage systemImageNamed:@"gamecontroller"];
-        [self.game1 setImageWithURL:posterURL];
+        [self setGameImage:self.game1 URLString:myGames[0][@"image"]];
         if(myGames.count >= 2){
-            self.game2.contentMode = UIViewContentModeScaleAspectFill;
-            NSURL *posterURL = [NSURL URLWithString:myGames[1][@"image"]];
-            self.game2.image = [UIImage systemImageNamed:@"gamecontroller"];
-            [self.game2 setImageWithURL:posterURL];
+            [self setGameImage:self.game2 URLString:myGames[1][@"image"]];
             if(myGames.count >= 3){
-                self.game3.contentMode = UIViewContentModeScaleAspectFill;
-                NSURL *posterURL = [NSURL URLWithString:myGames[2][@"image"]];
-                self.game3.image = [UIImage systemImageNamed:@"gamecontroller"];
-                [self.game3 setImageWithURL:posterURL];
+                [self setGameImage:self.game3 URLString:myGames[2][@"image"]];
                 if(myGames.count >= 4){
-                    self.game4.contentMode = UIViewContentModeScaleAspectFill;
-                    NSURL *posterURL = [NSURL URLWithString:myGames[3][@"image"]];
-                    self.game4.image = [UIImage systemImageNamed:@"gamecontroller"];
-                    [self.game4 setImageWithURL:posterURL];
+                    [self setGameImage:self.game4 URLString:myGames[3][@"image"]];
                     if(myGames.count >= 5){
-                        self.game5.contentMode = UIViewContentModeScaleAspectFill;
-                        NSURL *posterURL = [NSURL URLWithString:myGames[4][@"image"]];
-                        self.game5.image = [UIImage systemImageNamed:@"gamecontroller"];
-                        [self.game5 setImageWithURL:posterURL];
+                        [self setGameImage:self.game5 URLString:myGames[4][@"image"]];
                         if(myGames.count >= 6){
-                            self.game6.contentMode = UIViewContentModeScaleAspectFill;
-                            NSURL *posterURL = [NSURL URLWithString:myGames[5][@"image"]];
-                            self.game6.image = [UIImage systemImageNamed:@"gamecontroller"];
-                            [self.game6 setImageWithURL:posterURL];
+                            [self setGameImage:self.game6 URLString:myGames[5][@"image"]];
                             if(myGames.count >= 7){
-                                self.game7.contentMode = UIViewContentModeScaleAspectFill;
-                                NSURL *posterURL = [NSURL URLWithString:myGames[6][@"image"]];
-                                self.game7.image = [UIImage systemImageNamed:@"gamecontroller"];
-                                [self.game7 setImageWithURL:posterURL];
+                                [self setGameImage:self.game7 URLString:myGames[6][@"image"]];
                                 if(myGames.count >= 8){
-                                    self.game8.contentMode = UIViewContentModeScaleAspectFill;
-                                    NSURL *posterURL = [NSURL URLWithString:myGames[7][@"image"]];
-                                    self.game8.image = [UIImage systemImageNamed:@"gamecontroller"];
-                                    [self.game8 setImageWithURL:posterURL];
-                                    
+                                    [self setGameImage:self.game8 URLString:myGames[7][@"image"]];
                                 }
                             }
                         }
@@ -134,6 +108,13 @@
             }
         }
     }
+}
+
+-(void)setGameImage:(UIImageView *)picture URLString:(NSString *)URLString{
+    picture.contentMode = UIViewContentModeScaleAspectFill;
+    NSURL *posterURL = [NSURL URLWithString:URLString];
+    picture.image = [UIImage systemImageNamed:@"gamecontroller"];
+    [picture setImageWithURL:posterURL];
 }
 
 -(void)resetImages{

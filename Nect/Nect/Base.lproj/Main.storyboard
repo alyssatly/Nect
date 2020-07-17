@@ -180,7 +180,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ynY-4r-ulB">
-                                                <rect key="frame" x="8" y="341" width="398" height="388"/>
+                                                <rect key="frame" x="8" y="340.5" width="398" height="388"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="qZV-Cs-yOw">
                                                     <size key="itemSize" width="152" height="198"/>
@@ -207,6 +207,7 @@
                                                         <size key="customSize" width="152" height="198"/>
                                                         <connections>
                                                             <outlet property="profileGameView" destination="8PC-ty-JVs" id="gts-Ff-CiB"/>
+                                                            <segue destination="plS-lR-IYe" kind="show" identifier="viewGame" id="hIC-SZ-b43"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
@@ -774,7 +775,7 @@
         <scene sceneID="4qk-Xt-OdH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wxk-5c-EA5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="NECT" id="1Fc-Ev-cTC"/>
+                    <tabBarItem key="tabBarItem" title="NECT" image="bolt.fill" catalog="system" id="1Fc-Ev-cTC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="25C-j2-Jbm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -789,11 +790,11 @@
             </objects>
             <point key="canvasLocation" x="429" y="824"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="j5T-hw-sqK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PL7-eh-nG4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="iGz-WB-FtG"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="iGz-WB-FtG"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gNb-cQ-7dY">
@@ -830,7 +831,6 @@
         <!--Navigation Controller-->
         <scene sceneID="2Jc-O6-vyx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="erO-gq-qm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gVx-fp-lOB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fvt-Mh-1qj">
@@ -842,16 +842,22 @@
                         <segue destination="vSt-2L-JP5" kind="relationship" relationship="rootViewController" id="7aj-lX-esK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erO-gq-qm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2413" y="2277"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hIC-SZ-b43"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.turn.up.left" catalog="system" width="128" height="99"/>
+        <image name="bolt.fill" catalog="system" width="101" height="128"/>
         <image name="gamecontroller.fill" catalog="system" width="128" height="82"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="smiley" catalog="system" width="128" height="121"/>
         <image name="smiley.fill" catalog="system" width="128" height="121"/>
     </resources>
