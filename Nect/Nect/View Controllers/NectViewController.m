@@ -42,7 +42,7 @@
     self.nectUsernameLabel.alpha = 0;
     self.theyAlsoPlay.alpha = 0;
     self.matchedGamesLabel.alpha = 0;
-    [self.nectButton setTranslatesAutoresizingMaskIntoConstraints:YES];
+    self.theyAlsoPlay.text = @"They also play:";
     // Do any additional setup after loading the view.
 }
 
@@ -51,6 +51,7 @@
     [self matchUser];
     
     if(self.nectButton.frame.origin.y < (self.currentView.frame.size.height * 0.6)){
+        [self.nectButton setTranslatesAutoresizingMaskIntoConstraints:YES];
         [UIView animateWithDuration:1 animations:^{
             self.nectButton.frame = CGRectMake(self.nectButton.frame.origin.x, self.nectButton.frame.origin.y + (self.currentView.frame.size.height * 0.27), self.nectButton.frame.size.width, self.nectButton.frame.size.height);
         }];
@@ -173,6 +174,18 @@
              
         } else {
             NSLog(@"No new users to match with");
+            self.theyAlsoPlay.text = @"No matches :(";
+            [UIView animateWithDuration:0.5 animations:^{
+                self.displayPhotoView.alpha = 0;
+                self.displayNameLabel.alpha = 0;
+                self.nectUsernameLabel.alpha = 0;
+                self.theyAlsoPlay.alpha = 0;
+                self.matchedGamesLabel.alpha = 0;
+            }];
+            
+            [UIView animateWithDuration:1 animations:^{
+                self.theyAlsoPlay.alpha = 1;
+            }];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     }];
