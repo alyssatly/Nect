@@ -15,11 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *displayName;
-@property (nonatomic, strong) PFFileObject *profilePic;
+@property (nonatomic, strong) PFFileObject *displayPhoto;
 @property (nonatomic, strong) NSString *about;
 @property (nonatomic, strong) NSArray *games;
+@property (nonatomic, strong) NSArray *friends;
+@property (nonatomic, strong) NSArray *pendingFriends;
+@property (nonatomic, strong) NSArray *nectRequests;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+//to help out with match making
+@property (nonatomic, strong) NSMutableArray *dontMatchNames;
+
+
+- (instancetype)initWithUser:(PFUser *)user;
 @end
 
 NS_ASSUME_NONNULL_END

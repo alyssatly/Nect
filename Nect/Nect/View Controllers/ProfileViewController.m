@@ -67,6 +67,7 @@
     }
     self.displayNameLabel.text = currentUser[@"displayName"];
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", currentUser[@"username"]];
+    NSLog(@"%@", currentUser[@"username"]);
     self.aboutLabel.text = currentUser[@"about"];
     
     self.games = [NSMutableArray array];

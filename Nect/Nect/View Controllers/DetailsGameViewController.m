@@ -30,7 +30,7 @@
     [super viewDidLoad];
     //set button to add if user does not have game in profile, remove otherwise
     PFUser *currentUser = [[PFUser currentUser] fetch];
-    NSDictionary *gameDict = [self dictionaryFromMenu:self.game];
+    NSDictionary *gameDict = [self dictionaryFromGame:self.game];
     if(![currentUser[@"games"] containsObject:gameDict]){
         UIImage *btnImage = [UIImage systemImageNamed:@"plus"];
         [self.addOrRemoveButton setImage:btnImage];
@@ -64,7 +64,7 @@
 - (IBAction)addOrRemovePressed:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     PFUser *currentUser = [[PFUser currentUser] fetch];
-    NSDictionary *gameDict = [self dictionaryFromMenu:self.game];
+    NSDictionary *gameDict = [self dictionaryFromGame:self.game];
     NSMutableArray *gamesArray = currentUser[@"games"];
     NSString* status;
     if(![currentUser[@"games"] containsObject:gameDict]){
@@ -95,7 +95,7 @@
     }];
 }
 
-- (NSDictionary *)dictionaryFromMenu:(Game *)game {
+- (NSDictionary *)dictionaryFromGame:(Game *)game {
     NSDictionary *returnDict = [NSDictionary dictionaryWithObjectsAndKeys:game.name,@"title",
      game.gameDescription, @"description",
      game.developer, @"developer",
