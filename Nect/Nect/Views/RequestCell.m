@@ -42,6 +42,7 @@
 - (IBAction)acceptPressed:(id)sender {
     PFQuery *query = [PFQuery queryWithClassName:@"NectRequest"];
     [query whereKey:@"receiver" equalTo:[[PFUser currentUser] fetch][@"username"]];
+    [query whereKey:@"sender" equalTo:self.user.username];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
       if (object) {
         [object deleteInBackground];
@@ -65,6 +66,7 @@
 - (IBAction)removePressed:(id)sender {
     PFQuery *query = [PFQuery queryWithClassName:@"NectRequest"];
     [query whereKey:@"receiver" equalTo:[[PFUser currentUser] fetch][@"username"]];
+    [query whereKey:@"sender" equalTo:self.user.username];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
       if (object) {
         [object deleteInBackground];

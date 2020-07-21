@@ -58,6 +58,7 @@
         } else {
             self.requests = [NSMutableArray array];
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
         }
     }];
 

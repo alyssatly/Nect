@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 #import "RequestsViewController.h"
+#import "FriendsViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) RequestsViewController *requestViewController;
+@property (nonatomic, strong) FriendsViewController *friendsViewController;
 
 @end
 

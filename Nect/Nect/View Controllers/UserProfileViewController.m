@@ -115,9 +115,12 @@
             //NSDictionary *currentUserDict = [self dictionaryFromUser:[[User alloc] initWithUser:currentUser]];
             
             if([currentUser[@"friends"] containsObject:self.user.username]){
-                //remove friend from friends list
+                [self removeFriend];
+                [self.navigationController popViewControllerAnimated:YES];
             }else if([currentUser[@"pendingFriends"] containsObject:self.user.username]){
                 //remove from pending friends, remove nect request from other user
+                [self cancelRequest];
+                [self.navigationController popViewControllerAnimated:YES];
             }else if([currentUser[@"nectRequests"] containsObject:self.user.username]){
                 //add to current User's friends remove from nextRequests. Add to other user's friends and remove from pending requests
                 [self acceptRequest];
@@ -128,6 +131,80 @@
         }
     }];
 
+}
+
+-(void)removeFriend{
+    PFUser *currentUser = [[PFUser currentUser] fetch];
+    NSMutableArray *currentFriends = currentUser[@"friends"];
+    NSLog(@"%@",currentFriends);
+    PFQuery *query = [PFQuery queryWithClassName:@"Friend"];
+    [query whereKey:@"friend1" equalTo:currentUser[@"username"]];
+    [query whereKey:@"friend2" equalTo:self.user.username];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+      if (object) {
+        [object deleteInBackground];
+        [currentFriends removeObject:self.user.username];
+        currentUser[@"friend"] = currentFriends;
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Success");
+            [self.friendsViewController getFriends];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        } else {
+            NSLog(@"There was a problem: %@", error.description);
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }
+        }];
+      } else {
+          PFQuery *query = [PFQuery queryWithClassName:@"Friend"];
+          [query whereKey:@"friend2" equalTo:currentUser[@"username"]];
+          [query whereKey:@"friend1" equalTo:self.user.username];
+          [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            if (object) {
+              [object deleteInBackground];
+              [currentFriends removeObject:self.user.username];
+              currentUser[@"friend"] = currentFriends;
+              [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+              if (succeeded) {
+                  NSLog(@"Success");
+                  [self.friendsViewController getFriends];
+                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+              } else {
+                  NSLog(@"There was a problem: %@", error.description);
+                  [MBProgressHUD hideHUDForView:self.view animated:YES];
+              }
+              }];
+            } else {
+              NSLog(@"Unable to remove request");
+            }
+          }];
+      }
+    }];
+}
+
+-(void)cancelRequest{
+    PFUser *currentUser = [[PFUser currentUser] fetch];
+    NSMutableArray *currentFriends = currentUser[@"pendingFriends"];
+    PFQuery *query = [PFQuery queryWithClassName:@"NectRequest"];
+    [query whereKey:@"sender" equalTo:currentUser[@"username"]];
+    [query whereKey:@"receiver" equalTo:self.user.username];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+      if (object) {
+        [object deleteInBackground];
+        [currentFriends removeObject:self.user.username];
+        currentUser[@"pendingFriends"] = currentFriends;
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                NSLog(@"Success");
+                [self.friendsViewController getFriends];
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            } else {
+                NSLog(@"There was a problem: %@", error.description);
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            }
+        }];
+      }
+    }];
 }
 
 -(void)acceptRequest{

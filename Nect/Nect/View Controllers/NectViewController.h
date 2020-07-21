@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NectViewController : UIViewController
 
+-(void)refreshInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

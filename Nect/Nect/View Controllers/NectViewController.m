@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "MBProgressHUD.h"
 #import "User.h"
+#import "FriendsViewController.h"
 #import "UserProfileViewController.h"
 @import Parse;
 
@@ -392,15 +393,12 @@
                         self.highestScore = (NSInteger *)gameCount;
                     }
                 }
-                
-                //NSLog(@"%@", [NSString stringWithFormat:@"Highest:%ld,%@:%ld",(long)highestScore,matchingUser.username,(long)gameCount]);
             }
             if(self.bestMatch == nil){
                 self.bestMatch = [[User alloc] initWithUser:users[0]];
                 NSLog(@"Shouldn't be here");
             }
             [self.matchedUsers addObject:self.bestMatch.username];
-            //NSLog(@"%@, games: %@",self.bestMatch[@"username"],self.matchedGames);
             [self displayMatch];
              
         } else {
@@ -430,6 +428,10 @@
          UserProfileViewController *userProfileViewController = [segue destinationViewController];
          userProfileViewController.user = self.bestMatch;
      }
+    if([[segue identifier] isEqual:@"showFriends"]){
+        FriendsViewController *friendsViewController = [segue destinationViewController];
+        friendsViewController.nectViewController = self;
+    }
 }
 
 

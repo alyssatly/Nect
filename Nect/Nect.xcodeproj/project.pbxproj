@@ -27,6 +27,8 @@
 		E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0516E3824BCFDBF0096A5E9 /* NectViewController.m */; };
 		E0549EB224C0A90A00CF51B6 /* DetailsGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549EB124C0A90A00CF51B6 /* DetailsGameViewController.m */; };
 		E099A88D24BD059200F83109 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E099A88C24BD059200F83109 /* EditViewController.m */; };
+		E0C3928F24C778610030F047 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C3928E24C778610030F047 /* FriendsViewController.m */; };
+		E0C3929224C7788C0030F047 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C3929124C7788C0030F047 /* FriendCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,10 @@
 		E0549EB124C0A90A00CF51B6 /* DetailsGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsGameViewController.m; sourceTree = "<group>"; };
 		E099A88B24BD059200F83109 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		E099A88C24BD059200F83109 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		E0C3928D24C778610030F047 /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		E0C3928E24C778610030F047 /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		E0C3929024C7788C0030F047 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		E0C3929124C7788C0030F047 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,8 @@
 				E02A58FB24C10CFD00A28D2A /* ProfileGameCell.m */,
 				E021D7FE24C6570D00A5AF0A /* RequestCell.h */,
 				E021D7FF24C6570D00A5AF0A /* RequestCell.m */,
+				E0C3929024C7788C0030F047 /* FriendCell.h */,
+				E0C3929124C7788C0030F047 /* FriendCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +186,8 @@
 				E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */,
 				E0516E3724BCFDBF0096A5E9 /* NectViewController.h */,
 				E0516E3824BCFDBF0096A5E9 /* NectViewController.m */,
+				E0C3928D24C778610030F047 /* FriendsViewController.h */,
+				E0C3928E24C778610030F047 /* FriendsViewController.m */,
 				E021D7FB24C656BC00A5AF0A /* RequestsViewController.h */,
 				E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */,
 				E021D7F824C60CF900A5AF0A /* UserProfileViewController.h */,
@@ -315,7 +325,9 @@
 				E021D7FD24C656BC00A5AF0A /* RequestsViewController.m in Sources */,
 				E0516E1824BCDE870096A5E9 /* AppDelegate.m in Sources */,
 				E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */,
+				E0C3929224C7788C0030F047 /* FriendCell.m in Sources */,
 				E099A88D24BD059200F83109 /* EditViewController.m in Sources */,
+				E0C3928F24C778610030F047 /* FriendsViewController.m in Sources */,
 				E0516E2924BCDE880096A5E9 /* main.m in Sources */,
 				E0549EB224C0A90A00CF51B6 /* DetailsGameViewController.m in Sources */,
 				E02A58FC24C10CFD00A28D2A /* ProfileGameCell.m in Sources */,
