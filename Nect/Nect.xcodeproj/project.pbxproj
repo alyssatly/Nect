@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D5E030FB7F97C7977FCAA51F /* Pods_Nect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055A775CD3C0279179A17924 /* Pods_Nect.framework */; };
+		E021D7FA24C60CF900A5AF0A /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */; };
+		E021D7FD24C656BC00A5AF0A /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */; };
+		E021D80024C6570D00A5AF0A /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7FF24C6570D00A5AF0A /* RequestCell.m */; };
 		E02A58FC24C10CFD00A28D2A /* ProfileGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E02A58FB24C10CFD00A28D2A /* ProfileGameCell.m */; };
 		E04F9D0E24BE55DE0062BB85 /* SearchGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E04F9D0D24BE55DE0062BB85 /* SearchGamesViewController.m */; };
 		E04F9D1324BE5C110062BB85 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E04F9D1224BE5C110062BB85 /* GameCell.m */; };
@@ -30,6 +33,12 @@
 		055A775CD3C0279179A17924 /* Pods_Nect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A070F33033446B17EB3AEA93 /* Pods-Nect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nect.debug.xcconfig"; path = "Target Support Files/Pods-Nect/Pods-Nect.debug.xcconfig"; sourceTree = "<group>"; };
 		A241D3CE207203B32E1BCC71 /* Pods-Nect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nect.release.xcconfig"; path = "Target Support Files/Pods-Nect/Pods-Nect.release.xcconfig"; sourceTree = "<group>"; };
+		E021D7F824C60CF900A5AF0A /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
+		E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
+		E021D7FB24C656BC00A5AF0A /* RequestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestsViewController.h; sourceTree = "<group>"; };
+		E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestsViewController.m; sourceTree = "<group>"; };
+		E021D7FE24C6570D00A5AF0A /* RequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestCell.h; sourceTree = "<group>"; };
+		E021D7FF24C6570D00A5AF0A /* RequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestCell.m; sourceTree = "<group>"; };
 		E02A58FA24C10CFD00A28D2A /* ProfileGameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileGameCell.h; sourceTree = "<group>"; };
 		E02A58FB24C10CFD00A28D2A /* ProfileGameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileGameCell.m; sourceTree = "<group>"; };
 		E04F9D0C24BE55DE0062BB85 /* SearchGamesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchGamesViewController.h; sourceTree = "<group>"; };
@@ -98,6 +107,8 @@
 				E04F9D1224BE5C110062BB85 /* GameCell.m */,
 				E02A58FA24C10CFD00A28D2A /* ProfileGameCell.h */,
 				E02A58FB24C10CFD00A28D2A /* ProfileGameCell.m */,
+				E021D7FE24C6570D00A5AF0A /* RequestCell.h */,
+				E021D7FF24C6570D00A5AF0A /* RequestCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +178,10 @@
 				E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */,
 				E0516E3724BCFDBF0096A5E9 /* NectViewController.h */,
 				E0516E3824BCFDBF0096A5E9 /* NectViewController.m */,
+				E021D7FB24C656BC00A5AF0A /* RequestsViewController.h */,
+				E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */,
+				E021D7F824C60CF900A5AF0A /* UserProfileViewController.h */,
+				E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */,
 				E099A88B24BD059200F83109 /* EditViewController.h */,
 				E099A88C24BD059200F83109 /* EditViewController.m */,
 				E04F9D0C24BE55DE0062BB85 /* SearchGamesViewController.h */,
@@ -292,10 +307,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E04F9D1724BF57510062BB85 /* User.m in Sources */,
+				E021D80024C6570D00A5AF0A /* RequestCell.m in Sources */,
 				E04F9D1A24BF57630062BB85 /* Game.m in Sources */,
 				E04F9D1324BE5C110062BB85 /* GameCell.m in Sources */,
 				E04F9D0E24BE55DE0062BB85 /* SearchGamesViewController.m in Sources */,
 				E0516E3324BCF1AD0096A5E9 /* LoginViewController.m in Sources */,
+				E021D7FD24C656BC00A5AF0A /* RequestsViewController.m in Sources */,
 				E0516E1824BCDE870096A5E9 /* AppDelegate.m in Sources */,
 				E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */,
 				E099A88D24BD059200F83109 /* EditViewController.m in Sources */,
@@ -304,6 +321,7 @@
 				E02A58FC24C10CFD00A28D2A /* ProfileGameCell.m in Sources */,
 				E0516E1B24BCDE870096A5E9 /* SceneDelegate.m in Sources */,
 				E0516E3624BCFDB20096A5E9 /* ProfileViewController.m in Sources */,
+				E021D7FA24C60CF900A5AF0A /* UserProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,15 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFFileObject *displayPhoto;
 @property (nonatomic, strong) NSString *about;
 @property (nonatomic, strong) NSArray *games;
-@property (nonatomic, strong) NSArray *friends;
-@property (nonatomic, strong) NSArray *pendingFriends;
-@property (nonatomic, strong) NSArray *nectRequests;
+@property (nonatomic, strong) NSMutableArray *friends;
+@property (nonatomic, strong) NSMutableArray *pendingFriends;
+@property (nonatomic, strong) NSMutableArray *nectRequests;
 
 //to help out with match making
 @property (nonatomic, strong) NSMutableArray *dontMatchNames;
 
 
 - (instancetype)initWithUser:(PFUser *)user;
+
 @end
 
 NS_ASSUME_NONNULL_END

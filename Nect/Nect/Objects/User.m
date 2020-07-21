@@ -22,22 +22,10 @@
         self.friends = user[@"friends"];
         self.pendingFriends = user[@"pendingFriends"];
         self.nectRequests = user[@"nectRequests"];
-        
         self.dontMatchNames = [NSMutableArray array];
         
-        for(NSDictionary *user in self.friends){
-            [self.dontMatchNames addObject:user[@"username"]];
-        }
         
-        for(NSDictionary *user in self.pendingFriends){
-            [self.dontMatchNames addObject:user[@"username"]];
-        }
-        
-        for(NSDictionary *user in self.nectRequests){
-            [self.dontMatchNames addObject:user[@"username"]];
-        }
     }
     return self;
 }
-
 @end

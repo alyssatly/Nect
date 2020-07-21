@@ -61,25 +61,50 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    // searchBarSearchButtonClicked is a callback from an UI action, so you can assume that this block is already running on main thread.
     [searchBar resignFirstResponder];
-    //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    // on main thread, so it's fine
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.games = [NSMutableArray array];
     self.gameNames = [NSMutableArray array];
     [self.collectionView reloadData];
     
-    //dispatch_group_t group = dispatch_group_create();
-    
-    //dispatch_group_async(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
     if(![searchBar.text isEqualToString:@""]){
         self.searchName = searchBar.text;
-        [self fetchGames];
+        // create this dispatch group
+        dispatch_group_t group = dispatch_group_create();
+        // this is for entering of API 1
+        dispatch_group_enter(group);
+        [self fetchGamesWithCompletionHandler:^(NSArray *gameArray, BOOL success) {
+            if (success) {
+                for(NSDictionary *dictionary in gameArray){
+                    if(![self.gameNames containsObject:dictionary[@"title"]]){
+                        [self.gameNames addObject:dictionary[@"title"]];
+                        // This is for entering of API 2
+                        dispatch_group_enter(group);
+                        [self getInfo:dictionary completionHandler:^(NSDictionary *gameInfo, BOOL success) {
+                            if (success) {
+                                Game *game = [[Game alloc] initWithDictionary:gameInfo];
+                                //NSLog(@"%@", game.name);
+                                [self.games addObject:game];
+                                dispatch_async(dispatch_get_main_queue(), ^(void){
+                                    [self.collectionView reloadData];
+                                });
+                            }
+                            // This is for leaving of API 2
+                            dispatch_group_leave(group);
+                        }];
+                    }
+                }
+            }
+            // This is for leaving of API 1
+            dispatch_group_leave(group);
+        }];
+        // almost correct. you need to run this on main thread
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^ {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
     }
-   // });
-    
-    //dispatch_group_notify(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^ {
-     //   [MBProgressHUD hideHUDForView:self.view animated:YES];
-    //});
-  
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -105,7 +130,7 @@
     }
 }
 
--(void)fetchGames{
+-(void)fetchGamesWithCompletionHandler:(void (^)(NSArray* gameArray, BOOL success))completionHandler {
     NSDictionary *headers = @{ @"x-rapidapi-host": @"chicken-coop.p.rapidapi.com",
                                @"x-rapidapi-key": @"c91967f358msh851b0b71ae8c675p1070cbjsn0e2b892bbbfd" };
 
@@ -123,34 +148,32 @@
 
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
-    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                completionHandler:
+    ^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
+            completionHandler(nil, NO);
         } else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             if([dataDictionary[@"result"] isKindOfClass:[NSArray class]]){
                 NSArray *dictionaries = dataDictionary[@"result"];
+                completionHandler(dictionaries, YES);
+                /*
                 //NSLog(@"%@", dictionaries);
-                for(NSDictionary *dictionary in dictionaries){
-                    if(![self.gameNames containsObject:dictionary[@"title"]]){
-                        [self.gameNames addObject:dictionary[@"title"]];
-                        [self getInfo:dictionary];
-                    }
-                }
-            }else{
+                
+                */
+            } else {
                 NSLog(@"No Results!");
+                completionHandler(nil, NO);
             }
 
         }
     }];
-
     [dataTask resume];
-   
-    
 }
 
 
--(void)getInfo:(NSDictionary *)dictionary {
+-(void)getInfo:(NSDictionary *)dictionary completionHandler:(void (^)(NSDictionary* gameInfo, BOOL success))completionHandler{
     
     NSString *name = dictionary[@"title"];
     NSString *platform = dictionary[@"platform"];
@@ -175,21 +198,14 @@
     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
+            completionHandler(nil, NO);
         } else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             //NSLog(@"%@",dataDictionary);
             if([dataDictionary[@"result"] isKindOfClass:[NSDictionary class]]){
-                
-                Game *game = [[Game alloc] initWithDictionary:dataDictionary[@"result"]];
-                //NSLog(@"%@", game.name);
-                [self.games addObject:game];
-                dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-                    //Background Thread
-                    dispatch_async(dispatch_get_main_queue(), ^(void){
-                        [self.collectionView reloadData];
-                    });
-                });
-                
+                completionHandler(dataDictionary[@"result"], YES);
+            } else {
+                completionHandler(nil, NO);
             }
         }
     }];

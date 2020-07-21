@@ -276,7 +276,6 @@
     // Pass the selected object to the new view controller.
     if([[segue identifier] isEqual:@"editGames"]){
         //give the current EditViewController to the searchGamesViewController
-        NSLog(@"Tapped!");
         UINavigationController *navigationController = [segue destinationViewController];
         SearchGamesViewController *searchViewController = (SearchGamesViewController *)navigationController.topViewController;
         searchViewController.editViewController = self;
