@@ -15,28 +15,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA2-we-fbQ">
-                                <rect key="frame" x="138" y="418" width="138" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="HHU-cN-rPE"/>
-                                    <constraint firstAttribute="width" constant="138" id="Tvs-8D-aT9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="58"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="9ww-1m-C1g">
+                                <rect key="frame" x="113.5" y="359.5" width="187" height="187"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="NECT" translatesAutoresizingMaskIntoConstraints="NO" id="I0O-nb-6N1">
+                                <rect key="frame" x="91" y="691" width="232" height="121"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.57195928287958608" green="0.90976403916448878" blue="0.95740912183108806" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="wA2-we-fbQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7ev-KK-PEy"/>
-                            <constraint firstItem="wA2-we-fbQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KLZ-kx-Cb7"/>
+                            <constraint firstItem="I0O-nb-6N1" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.560386" id="1Ay-W7-TXb"/>
+                            <constraint firstItem="I0O-nb-6N1" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.135045" id="5ZL-Go-6gi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I0O-nb-6N1" secondAttribute="bottom" constant="50" id="AKj-az-vEh"/>
+                            <constraint firstItem="9ww-1m-C1g" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="eZh-XS-uVf"/>
+                            <constraint firstItem="9ww-1m-C1g" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.208705" id="qw9-PB-Nx6"/>
+                            <constraint firstItem="I0O-nb-6N1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rDT-zX-Eq8"/>
+                            <constraint firstItem="9ww-1m-C1g" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.451691" id="vFb-rf-smd"/>
+                            <constraint firstItem="9ww-1m-C1g" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wbX-b7-t0b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NECT" width="232" height="121"/>
+        <image name="loading" width="180" height="180"/>
+    </resources>
 </document>
