@@ -234,7 +234,7 @@
     GameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GameCell" forIndexPath:indexPath];
     
     NSURL*posterURL = [NSURL URLWithString:game.image];
-    cell.posterView.image = [UIImage systemImageNamed:@"smiley"];
+    cell.posterView.image = [UIImage imageNamed:@"default_game"];
     cell.posterView.alpha = 0.0;
     [cell.posterView setImageWithURL:posterURL];
     

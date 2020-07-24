@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NectViewController : UIViewController
 
 -(void)refreshInfo;
+-(void)updateFilters:(NSString *)gender young:(NSInteger)young old:(NSInteger)old country:(NSString *)country;
 
 @end
 

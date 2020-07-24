@@ -12,6 +12,7 @@
 #import "User.h"
 #import "FriendsViewController.h"
 #import "UserProfileViewController.h"
+#import "FilterViewController.h"
 @import Parse;
 
 @interface NectViewController () <UIGestureRecognizerDelegate>
@@ -27,9 +28,13 @@
 
 
 @property (strong, nonatomic) NSMutableArray *matchedUsers;
-@property (strong, nonatomic)User *bestMatch;
-@property (assign, nonatomic)NSInteger *highestScore;
+@property (strong, nonatomic) User *bestMatch;
+@property (assign, nonatomic) NSInteger *highestScore;
 @property (strong, nonatomic) NSMutableArray *matchedGames;
+@property (strong, nonatomic) NSString *genderPreference;
+@property (assign, nonatomic) NSInteger youngest;
+@property (assign, nonatomic) NSInteger oldest;
+@property (strong, nonatomic) NSString *countryPreference;
 
 @end
 
@@ -45,13 +50,13 @@
     self.theyAlsoPlay.alpha = 0;
     self.matchedGamesLabel.alpha = 0;
     self.theyAlsoPlay.text = @"They also play:";
+    self.youngest = 0;
 
     self.displayPhotoView.userInteractionEnabled = YES;
     UITapGestureRecognizer *profileGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(viewProfile)];
     profileGesture.numberOfTapsRequired = 1;
     [profileGesture setDelegate:self];
     [self.displayPhotoView addGestureRecognizer:profileGesture];
-    
     [self addGesture:self.displayNameLabel];
     [self addGesture:self.nectUsernameLabel];
 }
@@ -75,7 +80,7 @@
     if(self.nectButton.frame.origin.y < (self.currentView.frame.size.height * 0.6)){
         [self.nectButton setTranslatesAutoresizingMaskIntoConstraints:YES];
         [UIView animateWithDuration:1 animations:^{
-            self.nectButton.frame = CGRectMake(self.nectButton.frame.origin.x, self.nectButton.frame.origin.y + (self.currentView.frame.size.height * 0.27), self.nectButton.frame.size.width, self.nectButton.frame.size.height);
+            self.nectButton.frame = CGRectMake(self.nectButton.frame.origin.x, self.nectButton.frame.origin.y + (self.currentView.frame.size.height * 0.23), self.nectButton.frame.size.width, self.nectButton.frame.size.height);
         }];
     } else {
         [UIView animateWithDuration:0.7 animations:^{
@@ -92,14 +97,18 @@
     self.displayPhotoView.layer.cornerRadius = self.displayPhotoView.frame.size.height/2.2;
     self.displayPhotoView.layer.borderWidth = 0;
 
-    self.displayPhotoView.image = [UIImage systemImageNamed:@"person.crop.circle.fill"];
+    self.displayPhotoView.image = [UIImage imageNamed:@"default_game"];
 
     if(self.bestMatch.displayPhoto != nil){
         self.displayPhotoView.file = self.bestMatch.displayPhoto;
         [self.displayPhotoView loadInBackground];
     }
     self.displayNameLabel.text = self.bestMatch.displayName;
+    if([self.displayNameLabel.text isEqualToString:@""]){
+        self.displayNameLabel.text = self.bestMatch.username;
+    }
     self.nectUsernameLabel.text = [NSString stringWithFormat:@"@%@", self.bestMatch.username];
+    self.theyAlsoPlay.text = @"They also play:";
     
     NSMutableString *gameString = [NSMutableString stringWithString:@""];;
     for(NSMutableString *games in self.matchedGames){
@@ -142,7 +151,6 @@
     
     PFQuery *pendingQuery = [PFQuery queryWithClassName:@"NectRequest"];
     [pendingQuery whereKey:@"sender" equalTo:thisUser.username];
-    // fetch data asynchronously
     [pendingQuery findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
         if (requests != nil) {
             for(PFObject *request in requests){
@@ -151,7 +159,6 @@
             }
             PFQuery *requestQuery = [PFQuery queryWithClassName:@"NectRequest"];
             [requestQuery whereKey:@"receiver" equalTo:thisUser.username];
-            // fetch data asynchronously
             [requestQuery findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
                 if (requests != nil) {
                     for(PFObject *request in requests){
@@ -241,7 +248,6 @@
     
     PFQuery *pendingQuery = [PFQuery queryWithClassName:@"NectRequest"];
     [pendingQuery whereKey:@"sender" equalTo:thisUser.username];
-    // fetch data asynchronously
     [pendingQuery findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
         if (requests != nil) {
             for(PFObject *request in requests){
@@ -250,7 +256,6 @@
             }
             PFQuery *requestQuery = [PFQuery queryWithClassName:@"NectRequest"];
             [requestQuery whereKey:@"receiver" equalTo:thisUser.username];
-            // fetch data asynchronously
             [requestQuery findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
                 if (requests != nil) {
                     for(PFObject *request in requests){
@@ -338,11 +343,6 @@
 
 -(void)matchUser:(User *)thisUser{
     PFQuery *query = [PFUser query];
-//    PFUser *currentUser = [[PFUser currentUser] fetch];
-//    User *thisUser = [[User alloc] initWithUser:currentUser];
-//    [thisUser dontMatch];
-    
-    //get valid users
     [query whereKey:@"username" notEqualTo:thisUser.username];
     while(thisUser.dontMatchNames == nil){
         NSLog(@"loading");
@@ -354,16 +354,22 @@
         }
     }
     [query whereKey:@"username" notContainedIn:self.matchedUsers];
-    
+    if(self.genderPreference != nil){
+        [query whereKey:@"gender" equalTo:self.genderPreference];
+    }
+    if(self.youngest != 0){
+        [query whereKey:@"age" greaterThanOrEqualTo:@(self.youngest)];
+        [query whereKey:@"age" lessThanOrEqualTo:@(self.oldest)];
+    }
+    if(self.countryPreference != nil){
+        [query whereKey:@"country" equalTo:self.countryPreference];
+    }
     
     self.highestScore = 0;
     self.bestMatch = nil;
     self.matchedGames = [NSMutableArray array];
-     //fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
         if (users.count != 0) {
-            // do something with the array of object returned by the call
-            //NSLog(@"%@", [NSString stringWithFormat:@"%lu", (unsigned long)users.count]);
             for(PFUser *user in users){
                 NSMutableArray *currentMatchedGames = [NSMutableArray array];
                 User *matchingUser = [[User alloc] initWithUser:user];
@@ -420,6 +426,22 @@
     }];
 }
 
+-(void)updateFilters:(NSString *)gender young:(NSInteger)young old:(NSInteger)old country:(NSString *)country{
+    self.genderPreference = nil;
+    self.youngest = 0;
+    self.oldest = 0;
+    self.countryPreference = nil;
+    if(![gender isEqualToString:@"None"]){
+        self.genderPreference = gender;
+    }
+    if(young != 0){
+        self.youngest = young;
+        self.oldest = old;
+    }
+    if(![country isEqualToString:@""]){
+        self.countryPreference = country;
+    }
+}
 
 #pragma mark - Navigation
 
@@ -431,6 +453,11 @@
     if([[segue identifier] isEqual:@"showFriends"]){
         FriendsViewController *friendsViewController = [segue destinationViewController];
         friendsViewController.nectViewController = self;
+    }
+    if([[segue identifier] isEqual:@"filter"]){
+        FilterViewController *filterViewController = [segue destinationViewController];
+        filterViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        filterViewController.nectViewController = self;
     }
 }
 

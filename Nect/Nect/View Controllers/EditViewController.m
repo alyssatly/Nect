@@ -14,7 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 @import Parse;
 
-@interface EditViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate>
+@interface EditViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UIView *profileView;
 
@@ -23,6 +23,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UITextField *displayNameField;
 @property (strong, nonatomic) IBOutlet UITextView *aboutTextView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *genderControl;
+@property (strong, nonatomic) IBOutlet UITextField *ageTextField;
+@property (strong, nonatomic) NSArray *countries;
+@property (strong, nonatomic) UIPickerView *countryPickerView;
+@property (strong, nonatomic) IBOutlet UITextField *countryPicker;
+
 
 @property (strong, nonatomic) IBOutlet UIImageView *game1;
 @property (strong, nonatomic) IBOutlet UIImageView *game2;
@@ -43,7 +49,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.countryPickerView = [[UIPickerView alloc] init];
+    self.countryPickerView.dataSource = self;
+    self.countryPickerView.delegate = self;
     //set values for existing fields
     PFUser *currentUser = [[PFUser currentUser] fetch];
     if(currentUser[@"displayPhoto"] != nil){
@@ -56,6 +64,17 @@
     self.passwordField.text = @"";
     self.displayNameField.text = currentUser[@"displayName"];
     self.aboutTextView.text = currentUser[@"about"];
+    if(currentUser[@"age"] != nil){
+        self.ageTextField.text = [NSString stringWithFormat:@"%@", currentUser[@"age"]];
+    }
+    self.countryPicker.text = currentUser[@"country"];
+    if([currentUser[@"gender"] isEqualToString:@"N/A"]){
+        self.genderControl.selectedSegmentIndex = 2;
+    }else if([currentUser[@"gender"] isEqualToString:@"Male"]){
+        self.genderControl.selectedSegmentIndex = 0;
+    }else if([currentUser[@"gender"] isEqualToString:@"Female"]){
+        self.genderControl.selectedSegmentIndex = 1;
+    }
     
     //Make all images round
     self.profilePictureView.layer.masksToBounds = YES;
@@ -77,6 +96,14 @@
     //hide keyboard when view it touched
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.profileView addGestureRecognizer:gestureRecognizer];
+    
+    [self initalizeCountries];
+    if(currentUser[@"country"] != nil){
+        NSInteger countryIndex = [self.countries indexOfObject:currentUser[@"country"]];
+        [self.countryPickerView selectRow:countryIndex inComponent:0 animated:YES];
+    }
+    self.countryPicker.inputView = self.countryPickerView;
+    
 }
 
 //need to find a way to not hard code this later
@@ -113,7 +140,7 @@
 -(void)setGameImage:(UIImageView *)picture URLString:(NSString *)URLString{
     picture.contentMode = UIViewContentModeScaleAspectFill;
     NSURL *posterURL = [NSURL URLWithString:URLString];
-    picture.image = [UIImage systemImageNamed:@"gamecontroller"];
+    picture.image = [UIImage imageNamed:@"default_game"];
     [picture setImageWithURL:posterURL];
 }
 
@@ -215,7 +242,18 @@
     }
     currentUser[@"displayName"] = self.displayNameField.text;
     currentUser[@"about"] = self.aboutTextView.text;
+    currentUser[@"country"] = self.countryPicker.text;
     currentUser[@"displayPhoto"] = [self getPFFileFromImage:self.profilePictureView.image];
+    if(![self.ageTextField.text isEqualToString:@""]){
+        currentUser[@"age"] = @([self.ageTextField.text intValue]);
+    }
+    if(self.genderControl.selectedSegmentIndex == 2){
+        currentUser[@"gender"]  = @"N/A";
+    }else if(self.genderControl.selectedSegmentIndex == 0){
+        currentUser[@"gender"]  = @"Male";
+    }else if(self.genderControl.selectedSegmentIndex == 1){
+        currentUser[@"gender"]  = @"Female";
+    }
     
     [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
       if (succeeded) {
@@ -224,6 +262,7 @@
           [self dismissViewControllerAnimated:true completion:nil];
       } else {
           NSLog(@"There was a problem: %@", error.description);
+          [self addAlert:@"Could not save profile" message:@"There was a problem saving your profile"];
           [MBProgressHUD hideHUDForView:self.view animated:YES];
       }
     }];
@@ -259,11 +298,7 @@
 }
 
 -(void)hideKeyboard{
-    [self.usernameField endEditing:YES];
-    [self.passwordField endEditing:YES];
-    [self.displayNameField endEditing:YES];
-    [self.aboutTextView endEditing:YES];
-    
+    [self.profileView endEditing:YES];
 }
 
 
@@ -282,5 +317,25 @@
     }
 }
 
+
+- (NSInteger)numberOfComponentsInPickerView:(nonnull UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(nonnull UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.countries.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return self.countries[row];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.countryPicker.text = [self.countries objectAtIndex:row];
+}
+
+-(void)initalizeCountries{
+    self.countries = [NSArray arrayWithObjects: @"Prefer not to state",@"United States",@"Afghanistan", @"Akrotiri", @"Albania", @"Algeria", @"American Samoa", @"Andorra", @"Angola", @"Anguilla", @"Antarctica", @"Antigua and Barbuda", @"Argentina", @"Armenia", @"Aruba", @"Ashmore and Cartier Islands", @"Australia", @"Austria", @"Azerbaijan", @"The Bahamas", @"Bahrain", @"Bangladesh", @"Barbados", @"Bassas da India", @"Belarus", @"Belgium", @"Belize", @"Benin", @"Bermuda", @"Bhutan", @"Bolivia", @"Bosnia and Herzegovina", @"Botswana", @"Bouvet Island", @"Brazil", @"British Indian Ocean Territory", @"British Virgin Islands", @"Brunei", @"Bulgaria", @"Burkina Faso", @"Burma", @"Burundi", @"Cambodia", @"Cameroon", @"Canada", @"Cape Verde", @"Cayman Islands", @"Central African Republic", @"Chad", @"Chile", @"China", @"Christmas Island", @"Clipperton Island", @"Cocos (Keeling) Islands", @"Colombia", @"Comoros", @"Democratic Republic of the Congo", @"Republic of the Congo", @"Cook Islands", @"Coral Sea Islands", @"Costa Rica", @"Cote d'Ivoire", @"Croatia", @"Cuba", @"Cyprus", @"Czech Republic", @"Denmark", @"Dhekelia", @"Djibouti", @"Dominica", @"Dominican Republic", @"Ecuador", @"Egypt", @"El Salvador", @"Equatorial Guinea", @"Eritrea", @"Estonia", @"Ethiopia", @"Europa Island", @"Falkland Islands (Islas Malvinas)", @"Faroe Islands", @"Fiji", @"Finland", @"France", @"French Guiana", @"French Polynesia", @"French Southern and Antarctic Lands", @"Gabon", @"The Gambia", @"Gaza Strip", @"Georgia", @"Germany", @"Ghana", @"Gibraltar", @"Glorioso Islands", @"Greece", @"Greenland", @"Grenada", @"Guadeloupe", @"Guam", @"Guatemala", @"Guernsey", @"Guinea", @"Guinea-Bissau", @"Guyana", @"Haiti", @"Heard Island and McDonald Islands", @"Holy See (Vatican City)", @"Honduras", @"Hong Kong", @"Hungary", @"Iceland", @"India", @"Indonesia", @"Iran", @"Iraq", @"Ireland", @"Isle of Man", @"Israel", @"Italy", @"Jamaica", @"Jan Mayen", @"Japan", @"Jersey", @"Jordan", @"Juan de Nova Island", @"Kazakhstan", @"Kenya", @"Kiribati", @"North Korea", @"South Korea", @"Kuwait", @"Kyrgyzstan", @"Laos", @"Latvia", @"Lebanon", @"Lesotho", @"Liberia", @"Libya", @"Liechtenstein", @"Lithuania", @"Luxembourg", @"Macau", @"Macedonia", @"Madagascar", @"Malawi", @"Malaysia", @"Maldives", @"Mali", @"Malta", @"Marshall Islands", @"Martinique", @"Mauritania", @"Mauritius", @"Mayotte", @"Mexico", @"Federated States of Micronesia", @"Moldova", @"Monaco", @"Mongolia", @"Montserrat", @"Morocco", @"Mozambique", @"Namibia", @"Nauru", @"Navassa Island", @"Nepal", @"Netherlands", @"Netherlands Antilles", @"New Caledonia", @"New Zealand", @"Nicaragua", @"Niger", @"Nigeria", @"Niue", @"Norfolk Island", @"Northern Mariana Islands", @"Norway", @"Oman", @"Pakistan", @"Palau", @"Panama", @"Papua New Guinea", @"Paracel Islands", @"Paraguay", @"Peru", @"Philippines", @"Pitcairn Islands", @"Poland", @"Portugal", @"Puerto Rico", @"Qatar", @"Reunion", @"Romania", @"Russia", @"Rwanda", @"Saint Helena", @"Saint Kitts and Nevis", @"Saint Lucia", @"Saint Pierre and Miquelon", @"Saint Vincent and the Grenadines", @"Samoa", @"San Marino", @"Sao Tome and Principe", @"Saudi Arabia", @"Senegal", @"Serbia", @"Montenegro", @"Seychelles", @"Sierra Leone", @"Singapore", @"Slovakia", @"Slovenia", @"Solomon Islands", @"Somalia", @"South Africa", @"South Georgia and the South Sandwich Islands", @"Spain", @"Spratly Islands", @"Sri Lanka", @"Sudan", @"Suriname", @"Svalbard", @"Swaziland", @"Sweden", @"Switzerland", @"Syria", @"Taiwan", @"Tajikistan", @"Tanzania", @"Thailand", @"Tibet", @"Timor-Leste", @"Togo", @"Tokelau", @"Tonga", @"Trinidad and Tobago", @"Tromelin Island", @"Tunisia", @"Turkey", @"Turkmenistan", @"Turks and Caicos Islands", @"Tuvalu", @"Uganda", @"Ukraine", @"United Arab Emirates", @"United Kingdom", @"Uruguay", @"Uzbekistan", @"Vanuatu", @"Venezuela", @"Vietnam", @"Virgin Islands", @"Wake Island", @"Wallis and Futuna", @"West Bank", @"Western Sahara", @"Yemen", @"Zambia", @"Zimbabwe", nil];
+}
 
 @end

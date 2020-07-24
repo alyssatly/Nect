@@ -57,12 +57,15 @@
     self.profilePicView.layer.cornerRadius = self.profilePicView.frame.size.height/2.2;
     self.profilePicView.layer.borderWidth = 0;
     
-    self.profilePicView.image = [UIImage systemImageNamed:@"person.crop.circle.fill"];
+    self.profilePicView.image = [UIImage imageNamed:@"default_profile"];
     if(self.user.displayPhoto != nil){
         self.profilePicView.file= self.user.displayPhoto;
         [self.profilePicView loadInBackground];
     }
     self.displayNameLabel.text = self.user.displayName;
+    if([self.displayNameLabel.text isEqualToString:@""]|| self.displayNameLabel.text == nil){
+        self.displayNameLabel.text = self.user.username;
+    }
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", self.user.username];
     self.aboutLabel.text = self.user.about;
     
@@ -277,7 +280,7 @@
     ProfileGameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileGameCell" forIndexPath:indexPath];
     
     NSURL*posterURL = [NSURL URLWithString:game.image];
-    cell.profileGameView.image = [UIImage systemImageNamed:@"smiley"];
+    cell.profileGameView.image = [UIImage imageNamed:@"default_game"];
     cell.profileGameView.alpha = 0.0;
     [cell.profileGameView setImageWithURL:posterURL];
     

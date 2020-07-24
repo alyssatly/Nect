@@ -29,6 +29,7 @@
 		E099A88D24BD059200F83109 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E099A88C24BD059200F83109 /* EditViewController.m */; };
 		E0C3928F24C778610030F047 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C3928E24C778610030F047 /* FriendsViewController.m */; };
 		E0C3929224C7788C0030F047 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C3929124C7788C0030F047 /* FriendCell.m */; };
+		E0C3929524CA3D390030F047 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C3929424CA3D390030F047 /* FilterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		E0C3928E24C778610030F047 /* FriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		E0C3929024C7788C0030F047 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		E0C3929124C7788C0030F047 /* FriendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		E0C3929324CA3D390030F047 /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		E0C3929424CA3D390030F047 /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				E0516E3224BCF1AD0096A5E9 /* LoginViewController.m */,
 				E0516E3424BCFDB20096A5E9 /* ProfileViewController.h */,
 				E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */,
+				E0C3929324CA3D390030F047 /* FilterViewController.h */,
+				E0C3929424CA3D390030F047 /* FilterViewController.m */,
 				E0516E3724BCFDBF0096A5E9 /* NectViewController.h */,
 				E0516E3824BCFDBF0096A5E9 /* NectViewController.m */,
 				E0C3928D24C778610030F047 /* FriendsViewController.h */,
@@ -327,6 +332,7 @@
 				E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */,
 				E0C3929224C7788C0030F047 /* FriendCell.m in Sources */,
 				E099A88D24BD059200F83109 /* EditViewController.m in Sources */,
+				E0C3929524CA3D390030F047 /* FilterViewController.m in Sources */,
 				E0C3928F24C778610030F047 /* FriendsViewController.m in Sources */,
 				E0516E2924BCDE880096A5E9 /* main.m in Sources */,
 				E0549EB224C0A90A00CF51B6 /* DetailsGameViewController.m in Sources */,

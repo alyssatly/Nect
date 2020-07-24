@@ -66,6 +66,9 @@
         [self.profilePicView loadInBackground];
     }
     self.displayNameLabel.text = currentUser[@"displayName"];
+    if([self.displayNameLabel.text isEqualToString:@""] || currentUser[@"displayName"] == nil){
+        self.displayNameLabel.text = currentUser[@"username"];
+    }
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", currentUser[@"username"]];
     NSLog(@"%@", currentUser[@"username"]);
     self.aboutLabel.text = currentUser[@"about"];
@@ -118,7 +121,7 @@
     ProfileGameCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileGameCell" forIndexPath:indexPath];
     
     NSURL*posterURL = [NSURL URLWithString:game.image];
-    cell.profileGameView.image = [UIImage systemImageNamed:@"smiley"];
+    cell.profileGameView.image = [UIImage imageNamed:@"default_game"];
     cell.profileGameView.alpha = 0.0;
     [cell.profileGameView setImageWithURL:posterURL];
     

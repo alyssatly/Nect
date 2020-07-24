@@ -28,13 +28,16 @@
     self.displayPhotoView.layer.cornerRadius = self.displayPhotoView.frame.size.height/2.2;
     self.displayPhotoView.layer.borderWidth = 0;
 
-    self.displayPhotoView.image = [UIImage systemImageNamed:@"person.crop.circle.fill"];
+    self.displayPhotoView.image = [UIImage imageNamed:@"default_profile"];
 
     if(user.displayPhoto != nil){
         self.displayPhotoView.file = user.displayPhoto;
         [self.displayPhotoView loadInBackground];
     }
     self.displayNameLabel.text = user.displayName;
+    if([self.displayNameLabel.text isEqualToString:@""] || self.displayNameLabel.text == nil){
+        self.displayNameLabel.text = user.username;
+    }
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.username];
 }
 
