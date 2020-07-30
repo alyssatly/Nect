@@ -122,8 +122,8 @@
             filePath = "Nect/View Controllers/ProfileViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,8 +138,8 @@
             filePath = "Nect/View Controllers/EditViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-setGameImage:URLString:"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,8 +154,8 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-matchUser:"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,8 +170,8 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
             landmarkName = "-matchUser:"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,8 +186,8 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "-matchUser:"
             landmarkType = "7">
             <Locations>
@@ -234,8 +234,8 @@
             filePath = "Nect/Views/RequestCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-removePressed:"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,8 +250,8 @@
             filePath = "Nect/Views/RequestCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "-removePressed:"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,8 +266,8 @@
             filePath = "Nect/View Controllers/UserProfileViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "-removeFriend"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,8 +282,8 @@
             filePath = "Nect/View Controllers/UserProfileViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-removeFriend"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,8 +298,8 @@
             filePath = "Nect/View Controllers/UserProfileViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-removeFriend"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,8 +314,8 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "-nectPressed:"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,8 +330,8 @@
             filePath = "Nect/Delegates/SceneDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "-scene:willConnectToSession:options:"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,8 +346,8 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,8 +362,8 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,8 +378,8 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "-refreshInfo"
             landmarkType = "7">
          </BreakpointContent>
@@ -422,8 +422,8 @@
             filePath = "Nect/View Controllers/FilterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-pickerView:titleForRow:forComponent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -438,8 +438,8 @@
             filePath = "Nect/View Controllers/FilterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-pickerView:didSelectRow:inComponent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -454,8 +454,8 @@
             filePath = "Nect/View Controllers/FilterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-pickerView:numberOfRowsInComponent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -470,8 +470,8 @@
             filePath = "Nect/View Controllers/FilterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-numberOfComponentsInPickerView:"
             landmarkType = "7">
          </BreakpointContent>
@@ -486,8 +486,8 @@
             filePath = "Nect/View Controllers/FilterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "-pickerView:titleForRow:forComponent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -502,8 +502,8 @@
             filePath = "Nect/View Controllers/FilterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-pickerView:titleForRow:forComponent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -518,8 +518,8 @@
             filePath = "Nect/View Controllers/FilterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-pickerView:titleForRow:forComponent:"
             landmarkType = "7">
          </BreakpointContent>
@@ -534,9 +534,41 @@
             filePath = "Nect/View Controllers/NectViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "458"
-            endingLineNumber = "458"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
             landmarkName = "-prepareForSegue:sender:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A38A006-2E6C-48EF-B3E7-E1882198FB51"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nect/View Controllers/FilterViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-backPressed:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48A1429D-6802-40B5-A15C-B477969BBC0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Nect/View Controllers/Chatting/DetailedChatViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-sendPressed:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

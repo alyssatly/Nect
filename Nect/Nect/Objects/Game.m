@@ -18,10 +18,8 @@
         self.genres = dictionary[@"genre"];
         self.image = dictionary[@"image"];
         self.developer = dictionary[@"developer"];
-        
     }
     return self;
 }
-
 
 @end

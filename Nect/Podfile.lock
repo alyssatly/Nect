@@ -1,17 +1,181 @@
 PODS:
-  - AFNetworking (1.3.4)
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.1)
+  - ChatSDK (4.13.6):
+    - ChatSDK/Complete (= 4.13.6)
+  - ChatSDK/Complete (4.13.6):
+    - ChatSDK/Reachability
+    - ChatSDK/UI
+  - ChatSDK/Core (4.13.6):
+    - AFNetworking/NSURLSession (~> 3.2.1)
+    - DateTools (~> 2.0)
+    - RXPromise (~> 1.0)
+    - SAMKeychain
+  - ChatSDK/CoreData (4.13.6):
+    - ChatSDK/Core
+  - ChatSDK/Reachability (4.13.6):
+    - ChatSDK/Core
+    - Reachability
+  - ChatSDK/UI (4.13.6):
+    - ChatSDK/CoreData
+    - ChatSDKKeepLayout
+    - Hakawai (~> 5.1.5)
+    - MBProgressHUD (~> 1.0)
+    - SDWebImage (~> 5.0)
+    - StaticDataTableViewController (~> 2.0)
+    - Toast (~> 4.0.0)
+    - TOCropViewController (~> 2.0)
+    - VENTokenField (~> 2.0)
+  - ChatSDKFirebase/Adapter (4.14.0):
+    - ChatSDK
+    - Firebase/Auth
+    - Firebase/Database
+  - ChatSDKFirebase/FileStorage (4.14.0):
+    - ChatSDKFirebase/Adapter
+    - Firebase/Storage
+  - ChatSDKFirebase/Push (4.14.0):
+    - ChatSDKFirebase/Adapter
+    - Firebase/Functions
+    - Firebase/Messaging
+  - ChatSDKKeepLayout (1.7.7):
+    - ChatSDKKeepLayout/Swift (= 1.7.7)
+  - ChatSDKKeepLayout/ObjC (1.7.7)
+  - ChatSDKKeepLayout/Swift (1.7.7):
+    - ChatSDKKeepLayout/ObjC
+  - DateTools (2.0.0)
+  - Firebase/Auth (6.29.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 6.7.1)
+  - Firebase/CoreOnly (6.29.0):
+    - FirebaseCore (= 6.9.2)
+  - Firebase/Database (6.29.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 6.4.0)
+  - Firebase/Functions (6.29.0):
+    - Firebase/CoreOnly
+    - FirebaseFunctions (~> 2.7.0)
+  - Firebase/Messaging (6.29.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 4.6.1)
+  - Firebase/Storage (6.29.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 3.8.0)
+  - FirebaseAuth (6.7.1):
+    - FirebaseCore (~> 6.8)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (6.9.2):
+    - FirebaseCoreDiagnostics (~> 1.3)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+  - FirebaseCoreDiagnostics (1.5.0):
+    - GoogleDataTransport (~> 7.0)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+    - nanopb (~> 1.30905.0)
+  - FirebaseDatabase (6.4.0):
+    - FirebaseCore (~> 6.8)
+    - leveldb-library (~> 1.22)
+  - FirebaseFunctions (2.7.0):
+    - FirebaseCore (~> 6.8)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseInstallations (1.5.0):
+    - FirebaseCore (~> 6.8)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+    - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (4.5.1):
+    - FirebaseCore (~> 6.8)
+    - FirebaseInstallations (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+  - FirebaseMessaging (4.6.1):
+    - FirebaseCore (~> 6.8)
+    - FirebaseInstanceID (~> 4.3)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Reachability (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+    - Protobuf (>= 3.9.2, ~> 3.9)
+  - FirebaseStorage (3.8.0):
+    - FirebaseCore (~> 6.8)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FrameAccessor (1.3.2)
+  - GoogleDataTransport (7.1.0):
+    - nanopb (~> 1.30905.0)
+  - GoogleUtilities/AppDelegateSwizzler (6.7.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.7.1):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (6.7.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/Network (6.7.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.7.1)"
+  - GoogleUtilities/Reachability (6.7.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.7.1):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.4.0)
+  - Hakawai (5.1.6):
+    - Hakawai/Core (= 5.1.6)
+    - Hakawai/Mentions (= 5.1.6)
+  - Hakawai/Core (5.1.6)
+  - Hakawai/Mentions (5.1.6):
+    - Hakawai/Core
+  - leveldb-library (1.22)
   - MBProgressHUD (1.2.0)
+  - nanopb (1.30905.0):
+    - nanopb/decode (= 1.30905.0)
+    - nanopb/encode (= 1.30905.0)
+  - nanopb/decode (1.30905.0)
+  - nanopb/encode (1.30905.0)
   - Parse (1.18.0):
     - Parse/Core (= 1.18.0)
   - Parse/Core (1.18.0):
     - Bolts/Tasks (= 1.9.1)
   - Parse/UI (1.18.0):
     - Parse/Core
+  - PromisesObjC (1.2.9)
+  - Protobuf (3.12.0)
+  - Reachability (3.2)
+  - RXPromise (1.0.5)
+  - SAMKeychain (1.5.3)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
+  - StaticDataTableViewController (2.5.0)
+  - Toast (4.0.0)
+  - TOCropViewController (2.5.4)
   - Unirest (1.1.4)
+  - VENTokenField (2.5.2):
+    - FrameAccessor (~> 1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - ChatSDK
+  - ChatSDKFirebase/Adapter
+  - ChatSDKFirebase/FileStorage
+  - ChatSDKFirebase/Push
   - MBProgressHUD
   - Parse
   - Parse/UI
@@ -21,17 +185,79 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - Bolts
+    - ChatSDK
+    - ChatSDKFirebase
+    - ChatSDKKeepLayout
+    - DateTools
+    - Firebase
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseDatabase
+    - FirebaseFunctions
+    - FirebaseInstallations
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - FirebaseStorage
+    - FrameAccessor
+    - GoogleDataTransport
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - Hakawai
+    - leveldb-library
     - MBProgressHUD
+    - nanopb
     - Parse
+    - PromisesObjC
+    - Protobuf
+    - Reachability
+    - RXPromise
+    - SAMKeychain
+    - SDWebImage
+    - StaticDataTableViewController
+    - Toast
+    - TOCropViewController
     - Unirest
+    - VENTokenField
 
 SPEC CHECKSUMS:
-  AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  ChatSDK: d586f4dd3ac6fccdaeb92a60f6cb2083823fe98b
+  ChatSDKFirebase: 5744b6605ea3e60862357e99d176dffa285ecf69
+  ChatSDKKeepLayout: 37d06edcd8f4da9676fb24c2f21b36569c067be0
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  Firebase: 57957c8d6eb3d8b80a560b1dc58be24724b89ff2
+  FirebaseAuth: a818d73466d51db897d3bf3c0f3baa3dae7fd4c0
+  FirebaseCore: 7930a1946517d94256d857f97371ed993b55f7bd
+  FirebaseCoreDiagnostics: 7535fe695737f8c5b350584292a70b7f8ff0357b
+  FirebaseDatabase: 55e69fe802ccb438d9c6ee51eb32fd425d5409d3
+  FirebaseFunctions: 13d690cb93e98eea1b304ab05b4bc4436538482a
+  FirebaseInstallations: 3c520c951305cbf9ca54eb891ff9e6d1fd384881
+  FirebaseInstanceID: c4ad474b87787afd27d09541800620993b457d6f
+  FirebaseMessaging: 942cfe05b4f53c95ab8959395ca35c200398b2f0
+  FirebaseStorage: 3ef81ca5fa7817f85451ca09d516a34d2c7542a7
+  FrameAccessor: 0f7ba6ce37be9a5d0302a27c731dca70af8d438b
+  GoogleDataTransport: af0c79193dc59acd37630b4833d0dc6912ae6bd5
+  GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
+  GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  Hakawai: caf8cceda91548a12552d167e79c7dd88a88a7c2
+  leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   Parse: 79bdda34fdb7eb2a707a43a951c8aae236cb3e34
+  PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  RXPromise: b1e6d6d747db2e0dc53f11ba2a0fbff2456d25e5
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  StaticDataTableViewController: 0c5c4a47861446dd3cfd52530ae801ec7662ce26
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TOCropViewController: 2a1ae1242600b1f2d996fd91a5268b2309a33b5c
   Unirest: 5e4d93eaf32463bf619a4ecd3bbc8c32acf21eac
+  VENTokenField: 5a19b838fb97f040e3d4c93f584b4adeaf3fc1ee
 
-PODFILE CHECKSUM: 207b8b2e81ee1a3a77c9b2028b0bef9a01be417e
+PODFILE CHECKSUM: 1fb88d489831c6337fa0658c973daa8f09f71d2c
 
 COCOAPODS: 1.9.3

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D5E030FB7F97C7977FCAA51F /* Pods_Nect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055A775CD3C0279179A17924 /* Pods_Nect.framework */; };
+		E000E6F224D32E4A00FF197D /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E6F124D32E4A00FF197D /* ChatViewController.m */; };
+		E000E6F924D32EFC00FF197D /* CreateChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E6F824D32EFC00FF197D /* CreateChatViewController.m */; };
+		E000E6FE24D338B800FF197D /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E6FD24D338B800FF197D /* ChatCell.m */; };
+		E000E70124D338C800FF197D /* StartChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E70024D338C800FF197D /* StartChatCell.m */; };
+		E000E70424D3423100FF197D /* DetailedChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E70324D3423100FF197D /* DetailedChatViewController.m */; };
+		E000E70724D348D500FF197D /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E70624D348D500FF197D /* MessageCell.m */; };
+		E000E70D24D3773000FF197D /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E70C24D3773000FF197D /* Message.m */; };
 		E021D7FA24C60CF900A5AF0A /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */; };
 		E021D7FD24C656BC00A5AF0A /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */; };
 		E021D80024C6570D00A5AF0A /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7FF24C6570D00A5AF0A /* RequestCell.m */; };
@@ -36,6 +43,20 @@
 		055A775CD3C0279179A17924 /* Pods_Nect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A070F33033446B17EB3AEA93 /* Pods-Nect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nect.debug.xcconfig"; path = "Target Support Files/Pods-Nect/Pods-Nect.debug.xcconfig"; sourceTree = "<group>"; };
 		A241D3CE207203B32E1BCC71 /* Pods-Nect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nect.release.xcconfig"; path = "Target Support Files/Pods-Nect/Pods-Nect.release.xcconfig"; sourceTree = "<group>"; };
+		E000E6F024D32E4A00FF197D /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		E000E6F124D32E4A00FF197D /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		E000E6F724D32EFC00FF197D /* CreateChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateChatViewController.h; sourceTree = "<group>"; };
+		E000E6F824D32EFC00FF197D /* CreateChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateChatViewController.m; sourceTree = "<group>"; };
+		E000E6FC24D338B800FF197D /* ChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		E000E6FD24D338B800FF197D /* ChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		E000E6FF24D338C800FF197D /* StartChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartChatCell.h; sourceTree = "<group>"; };
+		E000E70024D338C800FF197D /* StartChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartChatCell.m; sourceTree = "<group>"; };
+		E000E70224D3423100FF197D /* DetailedChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedChatViewController.h; sourceTree = "<group>"; };
+		E000E70324D3423100FF197D /* DetailedChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedChatViewController.m; sourceTree = "<group>"; };
+		E000E70524D348D500FF197D /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		E000E70624D348D500FF197D /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		E000E70B24D3773000FF197D /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		E000E70C24D3773000FF197D /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		E021D7F824C60CF900A5AF0A /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		E021D7FB24C656BC00A5AF0A /* RequestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestsViewController.h; sourceTree = "<group>"; };
@@ -44,6 +65,7 @@
 		E021D7FF24C6570D00A5AF0A /* RequestCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestCell.m; sourceTree = "<group>"; };
 		E02A58FA24C10CFD00A28D2A /* ProfileGameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileGameCell.h; sourceTree = "<group>"; };
 		E02A58FB24C10CFD00A28D2A /* ProfileGameCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileGameCell.m; sourceTree = "<group>"; };
+		E04E2BD024D2013D00936637 /* Applozic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Applozic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04F9D0C24BE55DE0062BB85 /* SearchGamesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchGamesViewController.h; sourceTree = "<group>"; };
 		E04F9D0D24BE55DE0062BB85 /* SearchGamesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchGamesViewController.m; sourceTree = "<group>"; };
 		E04F9D1124BE5C110062BB85 /* GameCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
@@ -95,6 +117,7 @@
 		02F73A6B584962DB3329B3F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E04E2BD024D2013D00936637 /* Applozic.framework */,
 				055A775CD3C0279179A17924 /* Pods_Nect.framework */,
 			);
 			name = Frameworks;
@@ -109,9 +132,77 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E000E6F324D32E5000FF197D /* Nect screen */ = {
+			isa = PBXGroup;
+			children = (
+				E0C3929324CA3D390030F047 /* FilterViewController.h */,
+				E0C3929424CA3D390030F047 /* FilterViewController.m */,
+				E0516E3724BCFDBF0096A5E9 /* NectViewController.h */,
+				E0516E3824BCFDBF0096A5E9 /* NectViewController.m */,
+				E0C3928D24C778610030F047 /* FriendsViewController.h */,
+				E0C3928E24C778610030F047 /* FriendsViewController.m */,
+				E021D7FB24C656BC00A5AF0A /* RequestsViewController.h */,
+				E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */,
+				E021D7F824C60CF900A5AF0A /* UserProfileViewController.h */,
+				E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */,
+			);
+			path = "Nect screen";
+			sourceTree = "<group>";
+		};
+		E000E6F424D32E7A00FF197D /* Login Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E0516E3124BCF1AD0096A5E9 /* LoginViewController.h */,
+				E0516E3224BCF1AD0096A5E9 /* LoginViewController.m */,
+			);
+			path = "Login Screen";
+			sourceTree = "<group>";
+		};
+		E000E6F524D32E8D00FF197D /* User Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E0516E3424BCFDB20096A5E9 /* ProfileViewController.h */,
+				E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */,
+				E099A88B24BD059200F83109 /* EditViewController.h */,
+				E099A88C24BD059200F83109 /* EditViewController.m */,
+				E04F9D0C24BE55DE0062BB85 /* SearchGamesViewController.h */,
+				E04F9D0D24BE55DE0062BB85 /* SearchGamesViewController.m */,
+				E0549EB024C0A90A00CF51B6 /* DetailsGameViewController.h */,
+				E0549EB124C0A90A00CF51B6 /* DetailsGameViewController.m */,
+			);
+			path = "User Profile Screen";
+			sourceTree = "<group>";
+		};
+		E000E6F624D32EC000FF197D /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				E000E6F024D32E4A00FF197D /* ChatViewController.h */,
+				E000E6F124D32E4A00FF197D /* ChatViewController.m */,
+				E000E6F724D32EFC00FF197D /* CreateChatViewController.h */,
+				E000E6F824D32EFC00FF197D /* CreateChatViewController.m */,
+				E000E70224D3423100FF197D /* DetailedChatViewController.h */,
+				E000E70324D3423100FF197D /* DetailedChatViewController.m */,
+			);
+			path = Chatting;
+			sourceTree = "<group>";
+		};
+		E000E6FB24D3389500FF197D /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				E000E6FC24D338B800FF197D /* ChatCell.h */,
+				E000E6FD24D338B800FF197D /* ChatCell.m */,
+				E000E6FF24D338C800FF197D /* StartChatCell.h */,
+				E000E70024D338C800FF197D /* StartChatCell.m */,
+				E000E70524D348D500FF197D /* MessageCell.h */,
+				E000E70624D348D500FF197D /* MessageCell.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		E04F9D1024BE5BE20062BB85 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E000E6FB24D3389500FF197D /* Chat */,
 				E04F9D1124BE5C110062BB85 /* GameCell.h */,
 				E04F9D1224BE5C110062BB85 /* GameCell.m */,
 				E02A58FA24C10CFD00A28D2A /* ProfileGameCell.h */,
@@ -131,6 +222,8 @@
 				E04F9D1624BF57510062BB85 /* User.m */,
 				E04F9D1824BF57630062BB85 /* Game.h */,
 				E04F9D1924BF57630062BB85 /* Game.m */,
+				E000E70B24D3773000FF197D /* Message.h */,
+				E000E70C24D3773000FF197D /* Message.m */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -183,26 +276,10 @@
 		E0516E3024BCF19E0096A5E9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E0516E3124BCF1AD0096A5E9 /* LoginViewController.h */,
-				E0516E3224BCF1AD0096A5E9 /* LoginViewController.m */,
-				E0516E3424BCFDB20096A5E9 /* ProfileViewController.h */,
-				E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */,
-				E0C3929324CA3D390030F047 /* FilterViewController.h */,
-				E0C3929424CA3D390030F047 /* FilterViewController.m */,
-				E0516E3724BCFDBF0096A5E9 /* NectViewController.h */,
-				E0516E3824BCFDBF0096A5E9 /* NectViewController.m */,
-				E0C3928D24C778610030F047 /* FriendsViewController.h */,
-				E0C3928E24C778610030F047 /* FriendsViewController.m */,
-				E021D7FB24C656BC00A5AF0A /* RequestsViewController.h */,
-				E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */,
-				E021D7F824C60CF900A5AF0A /* UserProfileViewController.h */,
-				E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */,
-				E099A88B24BD059200F83109 /* EditViewController.h */,
-				E099A88C24BD059200F83109 /* EditViewController.m */,
-				E04F9D0C24BE55DE0062BB85 /* SearchGamesViewController.h */,
-				E04F9D0D24BE55DE0062BB85 /* SearchGamesViewController.m */,
-				E0549EB024C0A90A00CF51B6 /* DetailsGameViewController.h */,
-				E0549EB124C0A90A00CF51B6 /* DetailsGameViewController.m */,
+				E000E6F424D32E7A00FF197D /* Login Screen */,
+				E000E6F624D32EC000FF197D /* Chatting */,
+				E000E6F324D32E5000FF197D /* Nect screen */,
+				E000E6F524D32E8D00FF197D /* User Profile Screen */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -323,14 +400,21 @@
 			files = (
 				E04F9D1724BF57510062BB85 /* User.m in Sources */,
 				E021D80024C6570D00A5AF0A /* RequestCell.m in Sources */,
+				E000E6F224D32E4A00FF197D /* ChatViewController.m in Sources */,
 				E04F9D1A24BF57630062BB85 /* Game.m in Sources */,
 				E04F9D1324BE5C110062BB85 /* GameCell.m in Sources */,
+				E000E6FE24D338B800FF197D /* ChatCell.m in Sources */,
 				E04F9D0E24BE55DE0062BB85 /* SearchGamesViewController.m in Sources */,
 				E0516E3324BCF1AD0096A5E9 /* LoginViewController.m in Sources */,
 				E021D7FD24C656BC00A5AF0A /* RequestsViewController.m in Sources */,
 				E0516E1824BCDE870096A5E9 /* AppDelegate.m in Sources */,
+				E000E70724D348D500FF197D /* MessageCell.m in Sources */,
+				E000E70D24D3773000FF197D /* Message.m in Sources */,
+				E000E70424D3423100FF197D /* DetailedChatViewController.m in Sources */,
 				E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */,
+				E000E70124D338C800FF197D /* StartChatCell.m in Sources */,
 				E0C3929224C7788C0030F047 /* FriendCell.m in Sources */,
+				E000E6F924D32EFC00FF197D /* CreateChatViewController.m in Sources */,
 				E099A88D24BD059200F83109 /* EditViewController.m in Sources */,
 				E0C3929524CA3D390030F047 /* FilterViewController.m in Sources */,
 				E0C3928F24C778610030F047 /* FriendsViewController.m in Sources */,
@@ -489,6 +573,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = alyssatan.Nect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -507,6 +592,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = alyssatan.Nect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

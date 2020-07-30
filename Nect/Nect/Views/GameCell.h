@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) IBOutlet UIImageView *posterView;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

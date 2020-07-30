@@ -14,13 +14,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setPost:(User *)user{
@@ -28,9 +25,9 @@
     self.displayImageView.layer.masksToBounds = YES;
     self.displayImageView.layer.cornerRadius = self.displayImageView.frame.size.height/2.2;
     self.displayImageView.layer.borderWidth = 0;
-
+    
     self.displayImageView.image = [UIImage imageNamed:@"default_profile"];
-
+    
     if(user.displayPhoto != nil){
         self.displayImageView.file = user.displayPhoto;
         [self.displayImageView loadInBackground];
@@ -47,22 +44,22 @@
     [query whereKey:@"receiver" equalTo:[[PFUser currentUser] fetch][@"username"]];
     [query whereKey:@"sender" equalTo:self.user.username];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-      if (object) {
-        [object deleteInBackground];
-        PFObject *friend = [PFObject objectWithClassName:@"Friend"];
-           friend[@"friend1"] = [[PFUser currentUser] fetch][@"username"];
-           friend[@"friend2"] = self.user.username;
-           [friend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-             if (succeeded) {
-                NSLog(@"Friend Added!");
-               [self.requestsViewController getRequests];
-             } else {
-                NSLog(@"Error: %@", error.description);
-             }
-           }];
-      } else {
-        NSLog(@"Unable to remove request");
-      }
+        if (object) {
+            [object deleteInBackground];
+            PFObject *friend = [PFObject objectWithClassName:@"Friend"];
+            friend[@"friend1"] = [[PFUser currentUser] fetch][@"username"];
+            friend[@"friend2"] = self.user.username;
+            [friend saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    NSLog(@"Friend Added!");
+                    [self.requestsViewController getRequests];
+                } else {
+                    NSLog(@"Error: %@", error.description);
+                }
+            }];
+        } else {
+            NSLog(@"Unable to remove request");
+        }
     }];
 }
 
@@ -71,14 +68,13 @@
     [query whereKey:@"receiver" equalTo:[[PFUser currentUser] fetch][@"username"]];
     [query whereKey:@"sender" equalTo:self.user.username];
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-      if (object) {
-        [object deleteInBackground];
-        [self.requestsViewController getRequests];
-      } else {
-        NSLog(@"Unable to remove request");
-      }
+        if (object) {
+            [object deleteInBackground];
+            [self.requestsViewController getRequests];
+        } else {
+            NSLog(@"Unable to remove request");
+        }
     }];
 }
-
 
 @end

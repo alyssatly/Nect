@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'Nect' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -10,7 +10,12 @@ target 'Nect' do
   pod 'Parse/UI'
   pod 'AFNetworking'
   pod 'MBProgressHUD'
-  platform :ios, '5.0'
+pod 'ChatSDK'
+pod 'ChatSDKFirebase/Adapter'
+pod 'ChatSDKFirebase/FileStorage'
+pod 'ChatSDKFirebase/Push'
 pod 'Unirest', '~> 1.1.4'
+  #platform :ios, '5.0'
+
 
 end
