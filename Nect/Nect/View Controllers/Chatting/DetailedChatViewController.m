@@ -27,24 +27,47 @@
     self.chatTableView.dataSource = self;
     self.title = self.user.displayName;
     self.chatTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [self getMessages];
+    self.chatTableView.transform = CGAffineTransformMakeScale (1,-1);
     
     [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(getMessages) userInfo:nil repeats:YES];
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.currentView addGestureRecognizer:gestureRecognizer];
+    
+    if(self.user == nil){
+        NSString *friend = @"";
+        if([self.message.sender isEqualToString:[[PFUser currentUser] fetch][@"username"]]){
+            friend = self.message.receiver;
+        }else{
+            friend = self.message.sender;
+        }
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:friend];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *requests, NSError *error) {
+            if (requests.count != 0) {
+                User *friendUser = [[User alloc] initWithUser:requests[0]];
+                self.user = friendUser;
+                self.title = self.user.displayName;
+                [self getMessages];
+            }
+        }];
+    }else{
+        [self getMessages];
+    }
 }
 
 -(void)getMessages{
+    NSLog(@"getting messages");
     PFQuery *chatQuery1 = [PFQuery queryWithClassName:@"Chat"];
     [chatQuery1 whereKey:@"sender" equalTo:self.user.username];
+    [chatQuery1 whereKey:@"receiver" equalTo:[[PFUser currentUser] fetch][@"username"]];
     
     PFQuery *chatQuery2 = [PFQuery queryWithClassName:@"Chat"];
     [chatQuery2 whereKey:@"receiver" equalTo:self.user.username];
-
+    [chatQuery2 whereKey:@"sender" equalTo:[[PFUser currentUser] fetch][@"username"]];
+    
     PFQuery *mainChatQuery = [PFQuery orQueryWithSubqueries:@[chatQuery1,chatQuery2]];
-    [mainChatQuery orderByAscending:@"createdAt"];
-
+    [mainChatQuery orderByDescending:@"createdAt"];
+    
     [mainChatQuery findObjectsInBackgroundWithBlock:^(NSArray *chats, NSError *error) {
         if (chats != nil) {
             self.messages = [NSMutableArray array];
@@ -90,6 +113,7 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell"];
+    cell.transform = CGAffineTransformMakeScale(1, -1);
     [cell setCell:self.messages[indexPath.row]];
     return cell;
 }

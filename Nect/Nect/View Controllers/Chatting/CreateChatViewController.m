@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSArray *filteredFriends;
 @property (strong, nonatomic) IBOutlet UITableView *startChatView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -28,6 +29,10 @@
     self.searchBar.delegate = self;
     
     [self getFriends];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(getFriends) forControlEvents:UIControlEventValueChanged];
+    [self.startChatView addSubview:self.refreshControl];
 }
 
 -(void)getFriends{
@@ -45,6 +50,7 @@
             self.filteredFriends = (NSArray *)self.friends;
             //need to find a way to sort alphabetically
             //self.filteredFriends = [self.friends sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+            [self.refreshControl endRefreshing];
             [self.startChatView reloadData];
         }];
     }
@@ -73,6 +79,7 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    //need to make it so that capitalizatino is not taken into account! *********
     if (searchText.length != 0) {
         self.filteredFriends = [self.friends filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(displayName contains[c] %@)", searchText]];
     }

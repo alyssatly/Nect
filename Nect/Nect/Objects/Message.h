@@ -13,7 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Message : NSObject
 
 @property (nonatomic, strong) NSString *sender;
+@property (nonatomic, strong) NSString *receiver;
 @property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSDate *createdAt;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

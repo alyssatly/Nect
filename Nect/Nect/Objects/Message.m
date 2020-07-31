@@ -14,6 +14,7 @@
     self = [super init];
     if(self){
         self.sender = dictionary[@"sender"];
+        self.receiver = dictionary[@"receiver"];
         self.message = dictionary[@"message"];
     }
     return self;

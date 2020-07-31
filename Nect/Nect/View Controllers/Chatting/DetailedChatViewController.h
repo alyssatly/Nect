@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Message.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailedChatViewController : UIViewController
 
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) Message *message;
 
 @end
 

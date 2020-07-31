@@ -1709,7 +1709,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last message sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eJ-jv-GYk">
-                                                    <rect key="frame" x="109" y="52" width="275" height="23"/>
+                                                    <rect key="frame" x="109" y="57" width="275" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="cjA-lR-np8"/>
                                                     </constraints>
@@ -1718,7 +1718,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Display Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8Y-oM-6CY">
-                                                    <rect key="frame" x="109" y="20" width="197" height="27"/>
+                                                    <rect key="frame" x="109" y="20" width="190" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="wZq-dm-aih"/>
                                                     </constraints>
@@ -1727,11 +1727,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="2 mins ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmB-vz-npm">
-                                                    <rect key="frame" x="311" y="22" width="93" height="23"/>
+                                                    <rect key="frame" x="304" y="22" width="100" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="h7L-c4-0H9"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1745,13 +1745,18 @@
                                                 <constraint firstItem="RmB-vz-npm" firstAttribute="centerY" secondItem="l8Y-oM-6CY" secondAttribute="centerY" id="Mt4-Ec-cFw"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0eJ-jv-GYk" secondAttribute="trailing" constant="10" id="Sse-8g-1UF"/>
                                                 <constraint firstItem="RmB-vz-npm" firstAttribute="leading" secondItem="l8Y-oM-6CY" secondAttribute="trailing" constant="5" id="VHO-lq-5eX"/>
-                                                <constraint firstItem="0eJ-jv-GYk" firstAttribute="top" secondItem="l8Y-oM-6CY" secondAttribute="bottom" constant="5" id="gdC-d8-hzz"/>
+                                                <constraint firstItem="0eJ-jv-GYk" firstAttribute="top" secondItem="l8Y-oM-6CY" secondAttribute="bottom" constant="10" id="gdC-d8-hzz"/>
+                                                <constraint firstItem="RmB-vz-npm" firstAttribute="width" secondItem="pV8-GK-qFI" secondAttribute="width" multiplier="0.241546" id="ggY-w2-aWA"/>
                                                 <constraint firstItem="7GF-9z-cir" firstAttribute="width" secondItem="pV8-GK-qFI" secondAttribute="width" multiplier="0.202899" id="oGd-XQ-oT2"/>
                                                 <constraint firstAttribute="trailing" secondItem="RmB-vz-npm" secondAttribute="trailing" constant="10" id="tDs-WS-hDO"/>
                                                 <constraint firstItem="l8Y-oM-6CY" firstAttribute="leading" secondItem="7GF-9z-cir" secondAttribute="trailing" constant="15" id="yKp-2G-QIA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="displayNameLabel" destination="l8Y-oM-6CY" id="Xx1-Tw-DL7"/>
+                                            <outlet property="displayPhotoView" destination="7GF-9z-cir" id="OM4-8h-fXC"/>
+                                            <outlet property="lastMessageLabel" destination="0eJ-jv-GYk" id="4UQ-1r-7h1"/>
+                                            <outlet property="timeLabel" destination="RmB-vz-npm" id="yqj-Tv-bIZ"/>
                                             <segue destination="ief-7i-DPG" kind="show" identifier="ChatDetail" id="RST-Lb-KfH"/>
                                         </connections>
                                     </tableViewCell>
@@ -1778,6 +1783,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chatTableView" destination="Jm3-QX-86j" id="Nna-Cg-Ddn"/>
+                        <outlet property="searchBar" destination="FHO-pm-jKZ" id="qcP-Y6-eDD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsC-Q1-VNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1860,7 +1869,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DK7-qc-dQ4"/>
+        <segue reference="RST-Lb-KfH"/>
         <segue reference="ksv-us-M3T"/>
         <segue reference="Kcd-2u-glm"/>
     </inferredMetricsTieBreakers>
