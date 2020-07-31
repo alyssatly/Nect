@@ -15,6 +15,8 @@
 		E000E70424D3423100FF197D /* DetailedChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E70324D3423100FF197D /* DetailedChatViewController.m */; };
 		E000E70724D348D500FF197D /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E70624D348D500FF197D /* MessageCell.m */; };
 		E000E70D24D3773000FF197D /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E70C24D3773000FF197D /* Message.m */; };
+		E000E71024D4C65200FF197D /* Workaround.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000E70F24D4C65200FF197D /* Workaround.swift */; };
+		E000E71324D4D78E00FF197D /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E000E71224D4D78E00FF197D /* UIImage+animatedGIF.m */; };
 		E021D7FA24C60CF900A5AF0A /* UserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */; };
 		E021D7FD24C656BC00A5AF0A /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7FC24C656BC00A5AF0A /* RequestsViewController.m */; };
 		E021D80024C6570D00A5AF0A /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E021D7FF24C6570D00A5AF0A /* RequestCell.m */; };
@@ -57,6 +59,10 @@
 		E000E70624D348D500FF197D /* MessageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		E000E70B24D3773000FF197D /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		E000E70C24D3773000FF197D /* Message.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		E000E70E24D4C65200FF197D /* Nect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nect-Bridging-Header.h"; sourceTree = "<group>"; };
+		E000E70F24D4C65200FF197D /* Workaround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workaround.swift; sourceTree = "<group>"; };
+		E000E71124D4D78E00FF197D /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		E000E71224D4D78E00FF197D /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		E021D7F824C60CF900A5AF0A /* UserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileViewController.h; sourceTree = "<group>"; };
 		E021D7F924C60CF900A5AF0A /* UserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileViewController.m; sourceTree = "<group>"; };
 		E021D7FB24C656BC00A5AF0A /* RequestsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestsViewController.h; sourceTree = "<group>"; };
@@ -258,6 +264,10 @@
 				E0516E2424BCDE880096A5E9 /* LaunchScreen.storyboard */,
 				E0516E2724BCDE880096A5E9 /* Info.plist */,
 				E0516E2824BCDE880096A5E9 /* main.m */,
+				E000E70F24D4C65200FF197D /* Workaround.swift */,
+				E000E70E24D4C65200FF197D /* Nect-Bridging-Header.h */,
+				E000E71124D4D78E00FF197D /* UIImage+animatedGIF.h */,
+				E000E71224D4D78E00FF197D /* UIImage+animatedGIF.m */,
 			);
 			path = Nect;
 			sourceTree = "<group>";
@@ -317,6 +327,7 @@
 				TargetAttributes = {
 					E0516E1224BCDE870096A5E9 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -411,6 +422,7 @@
 				E000E70724D348D500FF197D /* MessageCell.m in Sources */,
 				E000E70D24D3773000FF197D /* Message.m in Sources */,
 				E000E70424D3423100FF197D /* DetailedChatViewController.m in Sources */,
+				E000E71324D4D78E00FF197D /* UIImage+animatedGIF.m in Sources */,
 				E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */,
 				E000E70124D338C800FF197D /* StartChatCell.m in Sources */,
 				E0C3929224C7788C0030F047 /* FriendCell.m in Sources */,
@@ -422,6 +434,7 @@
 				E0549EB224C0A90A00CF51B6 /* DetailsGameViewController.m in Sources */,
 				E02A58FC24C10CFD00A28D2A /* ProfileGameCell.m in Sources */,
 				E0516E1B24BCDE870096A5E9 /* SceneDelegate.m in Sources */,
+				E000E71024D4C65200FF197D /* Workaround.swift in Sources */,
 				E0516E3624BCFDB20096A5E9 /* ProfileViewController.m in Sources */,
 				E021D7FA24C60CF900A5AF0A /* UserProfileViewController.m in Sources */,
 			);
@@ -564,6 +577,7 @@
 			baseConfigurationReference = A070F33033446B17EB3AEA93 /* Pods-Nect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9A2FLFB8JK;
 				INFOPLIST_FILE = Nect/Info.plist;
@@ -573,6 +587,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = alyssatan.Nect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nect/Nect-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -583,6 +599,7 @@
 			baseConfigurationReference = A241D3CE207203B32E1BCC71 /* Pods-Nect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9A2FLFB8JK;
 				INFOPLIST_FILE = Nect/Info.plist;
@@ -592,6 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = alyssatan.Nect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Nect/Nect-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

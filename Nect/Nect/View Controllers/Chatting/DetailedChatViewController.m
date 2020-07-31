@@ -10,12 +10,15 @@
 #import "MessageCell.h"
 #import <Parse/Parse.h>
 #import "Message.h"
+@import GiphyUISDK;
+@import GiphyCoreSDK;
 
-@interface DetailedChatViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface DetailedChatViewController () <UITableViewDataSource, UITableViewDelegate,GiphyDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *messageTextField;
 @property (strong, nonatomic) IBOutlet UITableView *chatTableView;
 @property (strong, nonatomic) IBOutlet UIView *currentView;
 @property (strong, nonatomic) NSMutableArray *messages;
+@property (assign, nonatomic) NSTimer *myTimer;
 
 @end
 
@@ -23,13 +26,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [Giphy configureWithApiKey:@"3spFE1PoXldiHpwEC96b4zfolhT6gS8l" verificationMode:false] ;
     self.chatTableView.delegate = self;
     self.chatTableView.dataSource = self;
     self.title = self.user.displayName;
     self.chatTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.chatTableView.transform = CGAffineTransformMakeScale (1,-1);
     
-    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(getMessages) userInfo:nil repeats:YES];
+    self.myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(getMessages) userInfo:nil repeats:YES];
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.currentView addGestureRecognizer:gestureRecognizer];
     
@@ -55,6 +59,10 @@
     }
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.myTimer invalidate];
+}
+
 -(void)getMessages{
     NSLog(@"getting messages");
     PFQuery *chatQuery1 = [PFQuery queryWithClassName:@"Chat"];
@@ -67,6 +75,7 @@
     
     PFQuery *mainChatQuery = [PFQuery orQueryWithSubqueries:@[chatQuery1,chatQuery2]];
     [mainChatQuery orderByDescending:@"createdAt"];
+    mainChatQuery.limit = 15; // try to implement infinite scrolling as you scroll up?
     
     [mainChatQuery findObjectsInBackgroundWithBlock:^(NSArray *chats, NSError *error) {
         if (chats != nil) {
@@ -152,4 +161,40 @@
         self.currentView.frame = f;
     }];
 }
+
+- (IBAction)gifPressed:(id)sender {
+    GiphyViewController *giphy = [[GiphyViewController alloc]init ] ;
+    giphy.layout = GPHGridLayoutWaterfall;
+    giphy.theme = [[GPHTheme alloc] init];
+    giphy.rating = GPHRatingTypeRatedPG13;
+    giphy.delegate = self;
+    giphy.showConfirmationScreen = true ;
+    [giphy setMediaConfigWithTypes: [ [NSMutableArray alloc] initWithObjects:
+                                     @(GPHContentTypeGifs),@(GPHContentTypeStickers), @(GPHContentTypeText),@(GPHContentTypeEmoji), nil] ];
+    [self presentViewController:giphy animated:true completion:nil] ;
+}
+- (void)didDismissWithController:(GiphyViewController * _Nullable)controller {
+    
+}
+
+- (void)didSelectMediaWithGiphyViewController:(GiphyViewController * _Nonnull)giphyViewController media:(GPHMedia * _Nonnull)media {
+    PFObject *chat = [PFObject objectWithClassName:@"Chat"];
+    self.messageTextField.text = @"";
+    chat[@"sender"] = [[PFUser currentUser] fetch][@"username"];
+    chat[@"receiver"] = self.user.username;
+    chat[@"gif"] = media.url;
+    [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            NSLog(@"Gif created!");
+            [self getMessages];
+
+        } else {
+            NSLog(@"Error: %@", error.description);
+        }
+    }];
+
+    [self.currentView endEditing:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

@@ -21,7 +21,11 @@
 
 -(void)setCell:(Message *)message{
     self.message = message;
-    self.lastMessageLabel.text = self.message.message;
+    if(self.message.message == nil){
+        self.lastMessageLabel.text = self.message.gif;
+    }else{
+        self.lastMessageLabel.text = self.message.message;
+    }
     self.timeLabel.text = [self.message.createdAt timeAgoSinceNow];
     //fecth user
     NSString *friend = @"";

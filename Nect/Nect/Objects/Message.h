@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *sender;
 @property (nonatomic, strong) NSString *receiver;
 @property (nonatomic, strong) NSString *message;
+@property (nonatomic, strong) NSString *gif;
 @property (nonatomic, strong) NSDate *createdAt;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

@@ -1449,21 +1449,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o8L-VK-hbO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="671"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="99" id="6gP-uI-ngh" customClass="MessageCell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="99"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="220" id="6gP-uI-ngh" customClass="MessageCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gP-uI-ngh" id="5HQ-ow-12w">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Sa-VL-X82">
                                                     <rect key="frame" x="20" y="21" width="230" height="67"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is my chat message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V16-7d-HEC">
-                                                            <rect key="frame" x="10" y="5" width="188" height="57"/>
+                                                            <rect key="frame" x="10" y="5" width="188" height="178"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1487,7 +1487,7 @@
                                                     <rect key="frame" x="143" y="21" width="251" height="67"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is my chat message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfq-b2-wr5">
-                                                            <rect key="frame" x="10" y="5" width="188" height="57"/>
+                                                            <rect key="frame" x="10" y="5" width="188" height="178"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -1501,6 +1501,13 @@
                                                         <constraint firstItem="vfq-b2-wr5" firstAttribute="top" secondItem="3Bh-NB-b8T" secondAttribute="top" constant="5" id="XQR-PB-NSS"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qza-bd-tig">
+                                                    <rect key="frame" x="154" y="21" width="240" height="173"/>
+                                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Qza-bd-tig" secondAttribute="height" multiplier="240:173" id="x5j-Os-Jmg"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TWC-0g-dWR" firstAttribute="top" secondItem="5HQ-ow-12w" secondAttribute="topMargin" constant="-10" id="1xB-1q-shm"/>
@@ -1508,17 +1515,21 @@
                                                 <constraint firstItem="3Bh-NB-b8T" firstAttribute="trailing" secondItem="5HQ-ow-12w" secondAttribute="trailingMargin" id="NT1-kB-7kK"/>
                                                 <constraint firstItem="0Sa-VL-X82" firstAttribute="top" secondItem="5HQ-ow-12w" secondAttribute="topMargin" constant="10" id="O56-w6-M6Y"/>
                                                 <constraint firstItem="0Sa-VL-X82" firstAttribute="leading" secondItem="5HQ-ow-12w" secondAttribute="leadingMargin" id="Onu-vJ-CH5"/>
+                                                <constraint firstItem="Qza-bd-tig" firstAttribute="width" secondItem="5HQ-ow-12w" secondAttribute="width" multiplier="0.57971" id="Stt-vW-Quf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TWC-0g-dWR" secondAttribute="trailing" constant="8" id="VBu-cF-ctr"/>
                                                 <constraint firstItem="TWC-0g-dWR" firstAttribute="leading" secondItem="5HQ-ow-12w" secondAttribute="leadingMargin" constant="8" id="cfB-14-ZiW"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="0Sa-VL-X82" secondAttribute="trailing" constant="100" id="iIx-d0-aSm"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="0Sa-VL-X82" secondAttribute="bottom" id="kQp-tw-BEe"/>
+                                                <constraint firstItem="Qza-bd-tig" firstAttribute="trailing" secondItem="5HQ-ow-12w" secondAttribute="trailingMargin" id="lfK-S0-mTg"/>
                                                 <constraint firstItem="3Bh-NB-b8T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5HQ-ow-12w" secondAttribute="leadingMargin" constant="100" id="sDP-ob-mtY"/>
+                                                <constraint firstItem="Qza-bd-tig" firstAttribute="top" secondItem="TWC-0g-dWR" secondAttribute="bottom" id="vCa-Tw-4g3"/>
                                                 <constraint firstItem="3Bh-NB-b8T" firstAttribute="top" secondItem="5HQ-ow-12w" secondAttribute="topMargin" priority="750" constant="10" id="x0i-xb-c6Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bubbleView" destination="0Sa-VL-X82" id="oND-CJ-iZZ"/>
                                             <outlet property="bubbleView2" destination="3Bh-NB-b8T" id="jgO-cH-1Vc"/>
+                                            <outlet property="gifView" destination="Qza-bd-tig" id="SgJ-yF-p0y"/>
                                             <outlet property="messageLabel" destination="V16-7d-HEC" id="xl0-ZQ-xfm"/>
                                             <outlet property="messageLabel2" destination="vfq-b2-wr5" id="MOP-6o-wI7"/>
                                             <outlet property="usernameLabel" destination="TWC-0g-dWR" id="ry7-8k-iyX"/>
@@ -1549,10 +1560,18 @@
                                     <action selector="sendPressed:" destination="ief-7i-DPG" eventType="touchUpInside" id="GOR-ar-0c1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-sf-cqI">
+                                <rect key="frame" x="317" y="775" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="smiley" catalog="system"/>
+                                <connections>
+                                    <action selector="gifPressed:" destination="ief-7i-DPG" eventType="touchUpInside" id="oJq-Vy-7Sj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="o8L-VK-hbO" firstAttribute="top" secondItem="0sW-DG-KDa" secondAttribute="top" id="IBk-t8-Pon"/>
                             <constraint firstItem="urj-jZ-cNr" firstAttribute="top" secondItem="o8L-VK-hbO" secondAttribute="bottom" constant="10" id="IDG-O3-ww2"/>
                             <constraint firstItem="LgF-SV-ltx" firstAttribute="trailing" secondItem="FDM-7P-rer" secondAttribute="trailing" constant="10" id="QEn-0v-Hvt"/>
                             <constraint firstAttribute="trailing" secondItem="o8L-VK-hbO" secondAttribute="trailing" id="TsV-um-5Ve"/>
@@ -1561,6 +1580,7 @@
                             <constraint firstItem="urj-jZ-cNr" firstAttribute="leading" secondItem="LgF-SV-ltx" secondAttribute="leading" constant="10" id="ctV-BK-h1p"/>
                             <constraint firstItem="o8L-VK-hbO" firstAttribute="leading" secondItem="0sW-DG-KDa" secondAttribute="leading" id="koq-SC-czN"/>
                             <constraint firstItem="urj-jZ-cNr" firstAttribute="centerY" secondItem="FDM-7P-rer" secondAttribute="centerY" id="sDW-Df-rfa"/>
+                            <constraint firstItem="o8L-VK-hbO" firstAttribute="top" secondItem="LgF-SV-ltx" secondAttribute="top" id="uLT-g4-xjz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LgF-SV-ltx"/>
                     </view>
@@ -1890,6 +1910,7 @@
         <image name="person.badge.plus" catalog="system" width="128" height="116"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.bubble" catalog="system" width="128" height="110"/>
+        <image name="smiley" catalog="system" width="128" height="121"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

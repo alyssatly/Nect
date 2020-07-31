@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) IBOutlet UIView *bubbleView2;
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel2;
+@property (strong, nonatomic) IBOutlet UIImageView *gifView;
 
 -(void)setCell:(Message *)message;
 @end

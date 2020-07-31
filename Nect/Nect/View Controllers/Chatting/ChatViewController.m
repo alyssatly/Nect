@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *chatTableView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic,assign) NSTimer *myTimer;
 
 @end
 
@@ -33,11 +34,15 @@
     
     [self getChats];
     
-    //[NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(getChats) userInfo:nil repeats:YES];
+    self.myTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(getChats) userInfo:nil repeats:YES];
 
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(getChats) forControlEvents:UIControlEventValueChanged];
     [self.chatTableView addSubview:self.refreshControl];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    //[self.myTimer invalidate];
 }
 
 -(void)getChats{

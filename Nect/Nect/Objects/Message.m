@@ -16,6 +16,7 @@
         self.sender = dictionary[@"sender"];
         self.receiver = dictionary[@"receiver"];
         self.message = dictionary[@"message"];
+        self.gif = dictionary[@"gif"];
     }
     return self;
 }
