@@ -63,7 +63,7 @@
     PFUser *currentUser = [[PFUser currentUser] fetch];
     
     self.profilePicView.layer.masksToBounds = YES;
-    self.profilePicView.layer.cornerRadius = self.profilePicView.frame.size.height/2.2;
+    self.profilePicView.layer.cornerRadius = self.profilePicView.frame.size.height/2.1;
     self.profilePicView.layer.borderWidth = 0;
     if(currentUser[@"displayPhoto"] != nil){
         self.profilePicView.file= currentUser[@"displayPhoto"];

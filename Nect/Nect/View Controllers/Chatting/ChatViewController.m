@@ -42,7 +42,8 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    //[self.myTimer invalidate];
+    [self.myTimer invalidate];
+    self.myTimer = nil;
 }
 
 -(void)getChats{

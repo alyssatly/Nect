@@ -61,6 +61,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [self.myTimer invalidate];
+    self.myTimer = nil;
 }
 
 -(void)getMessages{
@@ -182,7 +183,9 @@
     self.messageTextField.text = @"";
     chat[@"sender"] = [[PFUser currentUser] fetch][@"username"];
     chat[@"receiver"] = self.user.username;
-    chat[@"gif"] = media.url;
+    NSString *url = [NSString stringWithFormat:@"https://media%ld.giphy.com/media/%@/giphy.gif",media.type + 1,media.id];
+    chat[@"gif"] = url ;
+    //NSLog(@"%@, %@, %@",media.source, media.url, media.id);
     [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"Gif created!");

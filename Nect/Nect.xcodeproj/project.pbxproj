@@ -35,6 +35,7 @@
 		E0516E3624BCFDB20096A5E9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0516E3524BCFDB20096A5E9 /* ProfileViewController.m */; };
 		E0516E3924BCFDBF0096A5E9 /* NectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0516E3824BCFDBF0096A5E9 /* NectViewController.m */; };
 		E0549EB224C0A90A00CF51B6 /* DetailsGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0549EB124C0A90A00CF51B6 /* DetailsGameViewController.m */; };
+		E05C3F5924D87A9A006257C4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E05C3F5824D87A9A006257C4 /* ImageIO.framework */; };
 		E099A88D24BD059200F83109 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E099A88C24BD059200F83109 /* EditViewController.m */; };
 		E0C3928F24C778610030F047 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C3928E24C778610030F047 /* FriendsViewController.m */; };
 		E0C3929224C7788C0030F047 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C3929124C7788C0030F047 /* FriendCell.m */; };
@@ -98,6 +99,7 @@
 		E0516E3824BCFDBF0096A5E9 /* NectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NectViewController.m; sourceTree = "<group>"; };
 		E0549EB024C0A90A00CF51B6 /* DetailsGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsGameViewController.h; sourceTree = "<group>"; };
 		E0549EB124C0A90A00CF51B6 /* DetailsGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsGameViewController.m; sourceTree = "<group>"; };
+		E05C3F5824D87A9A006257C4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E099A88B24BD059200F83109 /* EditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		E099A88C24BD059200F83109 /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		E0C3928D24C778610030F047 /* FriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05C3F5924D87A9A006257C4 /* ImageIO.framework in Frameworks */,
 				D5E030FB7F97C7977FCAA51F /* Pods_Nect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +126,7 @@
 		02F73A6B584962DB3329B3F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E05C3F5824D87A9A006257C4 /* ImageIO.framework */,
 				E04E2BD024D2013D00936637 /* Applozic.framework */,
 				055A775CD3C0279179A17924 /* Pods_Nect.framework */,
 			);

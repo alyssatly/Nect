@@ -9,8 +9,9 @@
 #import "RequestsViewController.h"
 #import "RequestCell.h"
 #import "UserProfileViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface RequestsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RequestsViewController () <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *requests;
@@ -22,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
+    self.tableView.tableFooterView = [UIView new];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -86,6 +91,21 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.requests.count;
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage systemImageNamed:@"person.fill"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"No New Nect Requests";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0f],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 @end

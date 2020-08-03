@@ -78,7 +78,7 @@
     
     //Make all images round
     self.profilePictureView.layer.masksToBounds = YES;
-    self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height/2.2;
+    self.profilePictureView.layer.cornerRadius = self.profilePictureView.frame.size.height/2.1;
     self.profilePictureView.layer.borderWidth = 0;
     [self updateImages];
     
@@ -161,7 +161,7 @@
 
 -(void)roundImage:(UIImageView *)picture{
     picture.layer.masksToBounds = YES;
-    picture.layer.cornerRadius = picture.frame.size.height/2.2;
+    picture.layer.cornerRadius = picture.frame.size.height/2.1;
     picture.layer.borderWidth = 0;
     picture.image = [UIImage systemImageNamed:@"gamecontroller.fill"];
     picture.contentMode = UIViewContentModeScaleAspectFit;

@@ -56,7 +56,7 @@
 
 -(void)getProfile{
     self.profilePicView.layer.masksToBounds = YES;
-    self.profilePicView.layer.cornerRadius = self.profilePicView.frame.size.height/2.2;
+    self.profilePicView.layer.cornerRadius = self.profilePicView.frame.size.height/2.1;
     self.profilePicView.layer.borderWidth = 0;
     
     self.profilePicView.image = [UIImage imageNamed:@"default_profile"];

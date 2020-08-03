@@ -91,7 +91,7 @@
 
 -(void)displayMatch{
     self.displayPhotoView.layer.masksToBounds = YES;
-    self.displayPhotoView.layer.cornerRadius = self.displayPhotoView.frame.size.height/2.2;
+    self.displayPhotoView.layer.cornerRadius = self.displayPhotoView.frame.size.height/2.1;
     self.displayPhotoView.layer.borderWidth = 0;
     
     self.displayPhotoView.image = [UIImage imageNamed:@"default_game"];

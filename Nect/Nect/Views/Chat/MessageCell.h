@@ -22,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel2;
 @property (strong, nonatomic) IBOutlet UIImageView *gifView;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageBottom;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageLeft;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *imageRight;
+
 -(void)setCell:(Message *)message;
 @end
 

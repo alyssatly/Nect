@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) Message *message;
 
+
 @end
 
 NS_ASSUME_NONNULL_END
