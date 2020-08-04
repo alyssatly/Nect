@@ -10,10 +10,11 @@
 #import "MessageCell.h"
 #import <Parse/Parse.h>
 #import "Message.h"
+#import "UIScrollView+EmptyDataSet.h"
 @import GiphyUISDK;
 @import GiphyCoreSDK;
 
-@interface DetailedChatViewController () <UITableViewDataSource, UITableViewDelegate,GiphyDelegate>
+@interface DetailedChatViewController () <UITableViewDataSource, UITableViewDelegate,GiphyDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *messageTextField;
 @property (strong, nonatomic) IBOutlet UITableView *chatTableView;
 @property (strong, nonatomic) IBOutlet UIView *currentView;
@@ -26,6 +27,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.chatTableView.emptyDataSetSource = self;
+    self.chatTableView.emptyDataSetDelegate = self;
+    self.chatTableView.tableFooterView = [UIView new];
+
     [Giphy configureWithApiKey:@"3spFE1PoXldiHpwEC96b4zfolhT6gS8l" verificationMode:false] ;
     self.chatTableView.delegate = self;
     self.chatTableView.dataSource = self;
@@ -198,6 +204,21 @@
 
     [self.currentView endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage systemImageNamed:@"array.up.message.fill"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"Start a chat";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0f],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 @end

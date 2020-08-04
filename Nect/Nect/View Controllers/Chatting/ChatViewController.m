@@ -10,8 +10,9 @@
 #import "Message.h"
 #import "ChatCell.h"
 #import "DetailedChatViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface ChatViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
+@interface ChatViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) NSMutableArray *alreadyRetrievedFriends;
 @property (strong, nonatomic) NSMutableArray *chats;
@@ -27,6 +28,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.chatTableView.emptyDataSetSource = self;
+    self.chatTableView.emptyDataSetDelegate = self;
+    self.chatTableView.tableFooterView = [UIView new];
     
     self.chatTableView.delegate = self;
     self.chatTableView.dataSource = self;
@@ -129,6 +134,36 @@
     self.searchBar.showsCancelButton = NO;
     self.searchBar.text = @"";
     [self.searchBar resignFirstResponder];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage systemImageNamed:@"message.fill"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"You Have No Open Chats";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"Click on the add chat button to start a new chat!";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+                                 
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 @end

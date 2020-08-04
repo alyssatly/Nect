@@ -16,9 +16,10 @@
 #import "MBProgressHUD.h"
 #import "User.h"
 #import "RequestsViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
 @import Parse;
 
-@interface UserProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface UserProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) IBOutlet PFImageView *profilePicView;
 @property (strong, nonatomic) IBOutlet UILabel *displayNameLabel;
@@ -35,6 +36,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.collectionView.emptyDataSetSource = self;
+    self.collectionView.emptyDataSetDelegate = self;
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
@@ -304,6 +309,21 @@
     [alert addAction:okAction];
     [self presentViewController:alert animated:YES completion:^{
     }];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage systemImageNamed:@"gamecontroller.fill"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"No Games Added";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 @end

@@ -10,8 +10,9 @@
 #import "FriendCell.h"
 #import "UserProfileViewController.h"
 #import "NectViewController.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface FriendsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface FriendsViewController () <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *tabControl;
 @property (strong, nonatomic) IBOutlet UITableView *friendsTableView;
@@ -24,6 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.friendsTableView.emptyDataSetSource = self;
+    self.friendsTableView.emptyDataSetDelegate = self;
+    self.friendsTableView.tableFooterView = [UIView new];
+    
     self.friendsTableView.dataSource = self;
     self.friendsTableView.delegate = self;
     
@@ -107,4 +113,25 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.friends.count;
 }
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage systemImageNamed:@"person.fill"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"";
+    if(self.tabControl.selectedSegmentIndex == 0){
+        text = @"You Have No Friends Currently :(";
+    }else{
+        text = @"You Have No Pending Friends";
+    }
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0f],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
 @end

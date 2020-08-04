@@ -9,8 +9,9 @@
 #import "CreateChatViewController.h"
 #import "DetailedChatViewController.h"
 #import "StartChatCell.h"
+#import "UIScrollView+EmptyDataSet.h"
 
-@interface CreateChatViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
+@interface CreateChatViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) NSMutableArray *friends;
 @property (strong, nonatomic) NSArray *filteredFriends;
@@ -24,6 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.startChatView.emptyDataSetSource = self;
+    self.startChatView.emptyDataSetDelegate = self;
+    self.startChatView.tableFooterView = [UIView new];
+    
     self.startChatView.delegate = self;
     self.startChatView.dataSource = self;
     self.searchBar.delegate = self;
@@ -97,6 +103,21 @@
     self.searchBar.showsCancelButton = NO;
     self.searchBar.text = @"";
     [self.searchBar resignFirstResponder];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage systemImageNamed:@"person.fill"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"You Have No Friends To Start Chats With";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0f],
+                                 NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
 
 @end
