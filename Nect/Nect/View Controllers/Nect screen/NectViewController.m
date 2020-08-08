@@ -116,7 +116,8 @@
         NSRange range = NSMakeRange([gameString length]-3,1);
         [gameString replaceCharactersInRange:range withString:@""];
     }else{
-        [gameString appendString:@"No simillar games"];
+        self.theyAlsoPlay.text = @"";
+        [gameString appendString:@"\nNo other users with simillar games\nYou have been matched with a random user"];
     }
     self.matchedGamesLabel.text = gameString;
     

@@ -26,6 +26,7 @@
     self.message = message;
     if(self.message.gif == nil){
         self.gifView.hidden = YES;
+        NSLog(@"%@",self.message.sender);
         if(self.message.sender == [[PFUser currentUser] fetch][@"username"]){
             self.bubbleView2.alpha = 1;
             self.messageLabel2.alpha = 1;

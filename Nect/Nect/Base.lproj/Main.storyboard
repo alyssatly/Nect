@@ -368,7 +368,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.76666441090000004" green="0.93661414710000002" blue="0.95740912180000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.72369617220000004" green="0.94068580869999996" blue="0.9607909322" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="6jQ-Ow-w3f" secondAttribute="bottom" constant="170" id="Aej-AX-jVQ"/>
                             <constraint firstItem="Nsg-JK-mZA" firstAttribute="centerX" secondItem="hdq-Cz-Z2y" secondAttribute="centerX" id="DWH-ON-M7V"/>
@@ -916,7 +916,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" keyboardDismissMode="interactive" text="Hi! My name is Alyssa and im the crerator of this app!" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ezv-kN-iwK">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" keyboardDismissMode="interactive" text="Hi! My name is Alyssa and im the crerator of this app!" translatesAutoresizingMaskIntoConstraints="NO" id="ezv-kN-iwK">
                                                 <rect key="frame" x="20" y="185" width="374" height="129"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1564,9 +1564,8 @@
                                     <action selector="sendPressed:" destination="ief-7i-DPG" eventType="touchUpInside" id="GOR-ar-0c1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-sf-cqI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebo-sf-cqI">
                                 <rect key="frame" x="317" y="775" width="20" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="smiley" catalog="system"/>
                                 <connections>
@@ -1577,6 +1576,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="urj-jZ-cNr" firstAttribute="top" secondItem="o8L-VK-hbO" secondAttribute="bottom" constant="10" id="IDG-O3-ww2"/>
+                            <constraint firstItem="ebo-sf-cqI" firstAttribute="top" secondItem="o8L-VK-hbO" secondAttribute="bottom" constant="16" id="Ia9-Rf-1WK"/>
+                            <constraint firstItem="FDM-7P-rer" firstAttribute="leading" secondItem="ebo-sf-cqI" secondAttribute="trailing" constant="17" id="MYi-wu-Id6"/>
                             <constraint firstItem="LgF-SV-ltx" firstAttribute="trailing" secondItem="FDM-7P-rer" secondAttribute="trailing" constant="10" id="QEn-0v-Hvt"/>
                             <constraint firstAttribute="trailing" secondItem="o8L-VK-hbO" secondAttribute="trailing" id="TsV-um-5Ve"/>
                             <constraint firstItem="FDM-7P-rer" firstAttribute="leading" secondItem="urj-jZ-cNr" secondAttribute="trailing" constant="10" id="UfA-8v-iG4"/>
@@ -1893,9 +1894,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RST-Lb-KfH"/>
+        <segue reference="DK7-qc-dQ4"/>
         <segue reference="ksv-us-M3T"/>
-        <segue reference="Kcd-2u-glm"/>
+        <segue reference="a3j-YT-n9n"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NECT" width="232" height="121"/>

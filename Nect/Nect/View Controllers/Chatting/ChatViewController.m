@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"%@",[[PFUser currentUser] fetch][@"username"]);
     self.chatTableView.emptyDataSetSource = self;
     self.chatTableView.emptyDataSetDelegate = self;
     self.chatTableView.tableFooterView = [UIView new];

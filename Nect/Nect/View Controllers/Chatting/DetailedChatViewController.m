@@ -26,11 +26,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [Giphy configureWithApiKey:@"3spFE1PoXldiHpwEC96b4zfolhT6gS8l" verificationMode:false] ;
     self.chatTableView.delegate = self;
     self.chatTableView.dataSource = self;
-    self.title = self.user.displayName;
+    if([self.user.displayName isEqualToString:@""] || self.user.displayName == nil){
+        self.title = self.user.username;
+    }else{
+        self.title = self.user.displayName;
+    }
     self.chatTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.chatTableView.transform = CGAffineTransformMakeScale (1,-1);
     
@@ -51,7 +55,11 @@
             if (requests.count != 0) {
                 User *friendUser = [[User alloc] initWithUser:requests[0]];
                 self.user = friendUser;
-                self.title = self.user.displayName;
+                if([self.user.displayName isEqualToString:@""] || self.user.displayName == nil){
+                    self.title = self.user.username;
+                }else{
+                    self.title = self.user.displayName;
+                }
                 [self getMessages];
             }
         }];
