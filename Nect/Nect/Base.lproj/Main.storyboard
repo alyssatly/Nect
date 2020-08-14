@@ -1237,7 +1237,6 @@
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="138" height="191"/>
                                         <connections>
                                             <outlet property="posterView" destination="Uha-SY-GOr" id="2rp-kV-WbN"/>
                                             <segue destination="plS-lR-IYe" kind="show" identifier="gameDetails" id="ksv-us-M3T"/>

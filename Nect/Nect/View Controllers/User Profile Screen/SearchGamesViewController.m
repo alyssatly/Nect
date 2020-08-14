@@ -51,6 +51,10 @@
     }
     [self.collectionView reloadData];
     
+}
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     
     layout.minimumLineSpacing = 3;
